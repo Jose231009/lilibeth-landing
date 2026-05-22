@@ -1,0 +1,186 @@
+'use client';
+// ─────────────────────────────────────────────────────────
+// ModelSection — "Es cambiar el modelo"
+// • 3 pilares con glassmorphism (card-glass del skill)
+// • Card central: border-spin animado (del skill)
+// • Stagger desde abajo con IntersectionObserver
+// ─────────────────────────────────────────────────────────
+import { useEffect, useRef } from 'react';
+
+const pillars = [
+  {
+    roman: 'I',
+    title: 'Ingresos que se acumulan',
+    text: 'Construís una base de clientes que paga mes a mes. Tu trabajo de hoy te paga también el próximo mes — y el siguiente, y el siguiente.',
+    icon: '◈',
+    featured: false,
+  },
+  {
+    roman: 'II',
+    title: 'Libertad real, no slogans',
+    text: '100% digital. Sin horarios, sin permanencia. Trabajás desde donde quieras, con la gente que quieres. Cuando viajas, los ingresos siguen entrando.',
+    icon: '◉',
+    featured: true,
+  },
+  {
+    roman: 'III',
+    title: 'Acompañamiento real',
+    text: 'No estás solo/a. Comunidad activa de +200 personas en 12 países y un sistema probado paso a paso. Resultados desde la primera semana.',
+    icon: '◎',
+    featured: false,
+  },
+];
+
+export function ModelSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef     = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const els = [containerRef.current, titleRef.current].filter(Boolean) as HTMLElement[];
+    const observers: IntersectionObserver[] = [];
+
+    // Title reveal
+    if (titleRef.current) {
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) { titleRef.current!.classList.add('revealed'); obs.unobserve(titleRef.current!); } },
+        { threshold: 0.15 }
+      );
+      obs.observe(titleRef.current);
+      observers.push(obs);
+    }
+
+    // Cards stagger
+    if (containerRef.current) {
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            containerRef.current!.querySelectorAll<HTMLElement>('.stagger-item')
+              .forEach((el, i) => setTimeout(() => el.classList.add('revealed'), i * 100));
+            obs.unobserve(containerRef.current!);
+          }
+        },
+        { threshold: 0.1 }
+      );
+      obs.observe(containerRef.current);
+      observers.push(obs);
+    }
+
+    return () => observers.forEach(o => o.disconnect());
+  }, []);
+
+  return (
+    <section
+      id="s-shift"
+      style={{
+        padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
+        background: 'linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 100%)',
+        position: 'relative', overflow: 'hidden',
+      }}
+    >
+      {/* Atmospheric glow */}
+      <div aria-hidden style={{
+        position: 'absolute', top: '50%', left: '50%',
+        transform: 'translate(-50%,-50%)',
+        width: '600px', height: '400px',
+        borderRadius: '50%',
+        background: 'radial-gradient(ellipse, rgba(201,169,110,0.05) 0%, transparent 70%)',
+        pointerEvents: 'none',
+      }} />
+
+      <div style={{ maxWidth: '1100px', margin: '0 auto', position: 'relative' }}>
+        {/* Header */}
+        <div
+          ref={titleRef}
+          className="reveal"
+          style={{ textAlign: 'center', marginBottom: 'clamp(50px, 7vw, 80px)' }}
+        >
+          <p className="eyebrow" style={{ marginBottom: '20px' }}>La respuesta no es trabajar más</p>
+          <h2 style={{
+            fontFamily: 'var(--font-instrument)',
+            fontSize: 'clamp(36px, 5vw, 60px)',
+            fontWeight: 400, lineHeight: 1.1,
+          }}>
+            Es <em style={{ color: '#C9A96E' }}>cambiar el modelo</em>
+          </h2>
+          <p style={{
+            fontSize: 'clamp(14px, 1.8vw, 16px)',
+            color: 'rgba(255,255,255,0.5)',
+            maxWidth: '520px',
+            margin: '20px auto 0',
+            lineHeight: 1.7,
+          }}>
+            No se trata de más esfuerzo ni de más suerte. Se trata de acceder a un
+            sistema que genera ingresos recurrentes — y dejarlo trabajar para ti.
+          </p>
+        </div>
+
+        {/* Cards con stagger — del skill */}
+        <div
+          ref={containerRef}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '16px',
+          }}
+        >
+          {pillars.map(({ roman, title, text, featured }) => (
+            <div
+              key={roman}
+              className={`stagger-item reveal ${featured ? 'glass-border-spin' : 'card-glass'}`}
+              style={{
+                padding: 'clamp(28px, 3vw, 40px)',
+                ...(featured ? { background: 'rgba(201,169,110,0.04)' } : {}),
+              }}
+            >
+              {/* Número romano */}
+              <div style={{
+                fontFamily: 'var(--font-instrument)',
+                fontStyle: 'italic',
+                fontSize: '52px',
+                color: featured ? '#C9A96E' : 'rgba(201,169,110,0.25)',
+                lineHeight: 1,
+                marginBottom: '20px',
+              }}>
+                {roman}
+              </div>
+
+              <h3 style={{
+                fontSize: 'clamp(18px, 2vw, 21px)',
+                fontWeight: 600,
+                marginBottom: '14px',
+                letterSpacing: '-0.01em',
+                color: featured ? '#fff' : 'rgba(255,255,255,0.9)',
+              }}>
+                {title}
+              </h3>
+              <p style={{
+                fontSize: '15px',
+                color: 'rgba(255,255,255,0.55)',
+                lineHeight: 1.7,
+              }}>
+                {text}
+              </p>
+
+              {featured && (
+                <div style={{
+                  marginTop: '24px',
+                  display: 'inline-block',
+                  padding: '6px 16px',
+                  background: 'rgba(201,169,110,0.12)',
+                  border: '1px solid rgba(201,169,110,0.3)',
+                  borderRadius: '20px',
+                  fontSize: '11px',
+                  color: '#C9A96E',
+                  letterSpacing: '0.1em',
+                  fontWeight: 600,
+                }}>
+                  LA CLAVE
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
