@@ -1,6 +1,6 @@
 'use client';
 // ─────────────────────────────────────────────────────────
-// AboutSection — "Hola, soy Lilibeth París"
+// AboutSection — "Hola, soy Lilibeth Paris"
 // • Foto con parallax suave al scroll (CSS transform, del skill)
 // • Reveal stagger en stats
 // • Solo transform — del skill
@@ -73,13 +73,7 @@ export function AboutSection() {
         pointerEvents: 'none',
       }} />
 
-      <div style={{
-        maxWidth: '1100px', margin: '0 auto',
-        display: 'grid',
-        gridTemplateColumns: 'clamp(280px, 35%, 420px) 1fr',
-        gap: 'clamp(40px, 6vw, 80px)',
-        alignItems: 'center',
-      }}>
+      <div className="about-grid" style={{ maxWidth: '1100px', margin: '0 auto' }}>
         {/* Foto con parallax — solo transform */}
         <div
           ref={photoRef}
@@ -96,7 +90,7 @@ export function AboutSection() {
           }}>
             <Image
               src="/assets/lilibeth-about.jpeg"
-              alt="Lilibeth París"
+              alt="Lilibeth Paris"
               fill
               style={{ objectFit: 'cover', objectPosition: 'top center' }}
               sizes="(max-width: 768px) 100vw, 420px"
@@ -140,7 +134,7 @@ export function AboutSection() {
             marginBottom: '28px',
           }}>
             Hola, soy<br />
-            <em style={{ color: '#C9A96E' }}>Lilibeth París</em>
+            <em style={{ color: '#C9A96E' }}>Lilibeth Paris</em>
           </h2>
 
           <div style={{
@@ -176,7 +170,7 @@ export function AboutSection() {
                 fontSize: '22px',
                 color: '#C9A96E',
               }}>
-                Lilibeth París
+                Lilibeth Paris
               </div>
               <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.06em' }}>
                 MENTORA · ES + LATAM

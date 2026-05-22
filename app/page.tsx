@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────
-// page.tsx — Landing Lilibeth París
+// page.tsx — Landing Lilibeth Paris
 // Ensambla todas las secciones en orden
 // Server Component (no necesita 'use client')
 // ─────────────────────────────────────────────────────────
@@ -24,7 +24,7 @@ function WAFloat() {
       href="https://wa.me/34644659106"
       target="_blank"
       rel="noopener noreferrer"
-      title="WhatsApp Lilibeth París"
+      title="WhatsApp Lilibeth Paris"
       aria-label="Contactar por WhatsApp"
     >
       <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
@@ -44,7 +44,7 @@ function Footer() {
       textAlign: 'center',
     }}>
       <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.25)' }}>
-        © 2026 Lilibeth París · Todos los derechos reservados ·{' '}
+        © 2026 Lilibeth Paris · Todos los derechos reservados ·{' '}
         <a href="#" style={{ color: 'rgba(255,255,255,0.35)', textDecoration: 'underline' }}>
           Privacidad
         </a>

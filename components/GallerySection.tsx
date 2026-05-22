@@ -57,20 +57,12 @@ export function GallerySection() {
           </h2>
         </div>
 
-        {/* Bento grid */}
-        <div
-          ref={containerRef}
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gridAutoRows: '220px',
-            gap: '8px',
-          }}
-        >
+        {/* Bento grid — responsive via CSS class */}
+        <div ref={containerRef} className="gallery-grid">
           {photos.map(({ src, label, sub, wide, tall }, i) => (
             <div
               key={src}
-              className="stagger-item reveal-scale"
+              className={`stagger-item reveal-scale${wide ? ' gallery-wide' : ''}${tall ? ' gallery-tall' : ''}`}
               style={{
                 gridColumn: wide ? 'span 2' : 'span 1',
                 gridRow:    tall ? 'span 2' : 'span 1',

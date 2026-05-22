@@ -57,7 +57,7 @@ export function Navbar() {
           letterSpacing: '0.02em',
         }}
       >
-        Lilibeth París
+        Lilibeth Paris
       </a>
 
       {/* CTA */}

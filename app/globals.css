@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ─────────────────────────────────────────────────────────
-   DESIGN TOKENS — Lilibeth París (cliente)
+   DESIGN TOKENS — Lilibeth Paris (cliente)
    NOTA: Paleta dorada champagne, NO los tokens de LeadShield
    ───────────────────────────────────────────────────────── */
 :root {
@@ -388,6 +388,55 @@ body {
   text-transform: uppercase;
   color: var(--color-accent);
   opacity: 0.85;
+}
+
+/* ─────────────────────────────────────────────────────────
+   GALLERY RESPONSIVE — bento grid
+   ───────────────────────────────────────────────────────── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 220px;
+  gap: 8px;
+}
+/* Mobile: 2 columnas, filas más pequeñas, sin spans */
+@media (max-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 160px;
+  }
+  .gallery-grid .gallery-wide { grid-column: span 1; }
+  .gallery-grid .gallery-tall { grid-row:    span 1; }
+}
+/* Tablet: 3 columnas, filas medianas */
+@media (min-width: 641px) and (max-width: 960px) {
+  .gallery-grid { grid-auto-rows: 180px; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   ABOUT SECTION — grid responsive
+   ───────────────────────────────────────────────────────── */
+.about-grid {
+  display: grid;
+  grid-template-columns: clamp(240px, 35%, 400px) 1fr;
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   HERO STATS — responsive grid
+   ───────────────────────────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 560px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* WhatsApp float */

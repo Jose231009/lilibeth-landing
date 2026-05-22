@@ -14,6 +14,7 @@ const WA_NUMBER   = '34644659106';
 export function FormSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [nombre,   setNombre]   = useState('');
+  const [email,    setEmail]    = useState('');
   const [wa,       setWa]       = useState('');
   const [ocup,     setOcup]     = useState('');
   const [obj,      setObj]      = useState('');
@@ -43,13 +44,14 @@ export function FormSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!nombre || !wa || !ocup || !obj) return;
+    if (!nombre || !email || !wa || !ocup || !obj) return;
 
     setLoading(true);
     setError('');
 
     const payload = {
       full_name:  nombre,
+      email:      email,
       phone:      wa,
       question_1: '¿A qué te dedicas actualmente?',
       answer_1:   ocup,
@@ -120,6 +122,21 @@ export function FormSection() {
                   placeholder="Cómo te llaman"
                   value={nombre}
                   onChange={e => setNombre(e.target.value)}
+                  required
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label style={{ display: 'block', fontSize: '12px', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.1em', marginBottom: '8px' }}>
+                  EMAIL
+                </label>
+                <input
+                  className="form-control"
+                  type="email"
+                  placeholder="tu@email.com"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
                   required
                 />
               </div>

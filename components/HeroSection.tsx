@@ -234,7 +234,7 @@ export function HeroSection() {
           }}>
             <Image
               src="/assets/lilibeth-hero.jpeg"
-              alt="Lilibeth París"
+              alt="Lilibeth Paris"
               width={64} height={64}
               style={{ objectFit: 'cover', width: '100%', height: '100%' }}
             />
@@ -254,9 +254,8 @@ export function HeroSection() {
         <motion.div
           variants={fadeUp} initial="hidden" animate="visible"
           transition={{ delay: 1.2 }}
+          className="stats-grid"
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '1px',
             marginTop: '64px',
             background: 'rgba(255,255,255,0.06)',

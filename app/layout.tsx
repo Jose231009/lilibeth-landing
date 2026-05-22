@@ -19,11 +19,11 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: 'Lilibeth París · Viajá el mundo mientras tus ingresos trabajan por ti',
+  title: 'Lilibeth Paris · Viajá el mundo mientras tus ingresos trabajan por ti',
   description:
     'Descubrí el modelo que +200 personas en 12 países usan para generar ingresos recurrentes — mientras viajan y viven sin depender de un horario fijo.',
   openGraph: {
-    title: 'Lilibeth París · iCruises',
+    title: 'Lilibeth Paris · iCruises',
     description: 'Ingresos recurrentes mientras viajas el mundo.',
     type: 'website',
   },
