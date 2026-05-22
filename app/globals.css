@@ -392,6 +392,8 @@ body {
 
 /* ─────────────────────────────────────────────────────────
    GALLERY RESPONSIVE — bento grid
+   Los spans se manejan SOLO por CSS para que los media
+   queries puedan sobreescribirlos (inline style no se puede).
    ───────────────────────────────────────────────────────── */
 .gallery-grid {
   display: grid;
@@ -399,18 +401,24 @@ body {
   grid-auto-rows: 220px;
   gap: 8px;
 }
-/* Mobile: 2 columnas, filas más pequeñas, sin spans */
-@media (max-width: 640px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 160px;
-  }
-  .gallery-grid .gallery-wide { grid-column: span 1; }
-  .gallery-grid .gallery-tall { grid-row:    span 1; }
-}
-/* Tablet: 3 columnas, filas medianas */
-@media (min-width: 641px) and (max-width: 960px) {
+/* Desktop: spans activos */
+.gallery-wide { grid-column: span 2; }
+.gallery-tall { grid-row:    span 2; }
+
+/* Tablet (641–960px): 3 cols, filas medianas */
+@media (max-width: 960px) {
   .gallery-grid { grid-auto-rows: 180px; }
+}
+
+/* Mobile (≤600px): 1 columna, filas cuadradas, sin spans */
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 240px;
+    gap: 6px;
+  }
+  .gallery-wide { grid-column: span 1 !important; }
+  .gallery-tall { grid-row:    span 1 !important; }
 }
 
 /* ─────────────────────────────────────────────────────────

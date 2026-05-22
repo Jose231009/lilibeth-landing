@@ -21,7 +21,7 @@ function WAFloat() {
   return (
     <a
       className="wa-float"
-      href="https://wa.me/34644659106"
+      href="https://wa.me/34644649106"
       target="_blank"
       rel="noopener noreferrer"
       title="WhatsApp Lilibeth Paris"

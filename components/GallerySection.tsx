@@ -64,12 +64,13 @@ export function GallerySection() {
               key={src}
               className={`stagger-item reveal-scale${wide ? ' gallery-wide' : ''}${tall ? ' gallery-tall' : ''}`}
               style={{
-                gridColumn: wide ? 'span 2' : 'span 1',
-                gridRow:    tall ? 'span 2' : 'span 1',
+                /* NO gridColumn/gridRow aquí — lo controla CSS para
+                   que los media queries puedan sobreescribirlo */
                 borderRadius: '12px',
                 overflow: 'hidden',
                 position: 'relative',
                 cursor: 'pointer',
+                minHeight: 0, /* evita overflow en grid */
               }}
             >
               <div style={{

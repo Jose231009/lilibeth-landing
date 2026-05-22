@@ -9,7 +9,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const WEBHOOK_URL = 'https://hook.us1.make.com/50okeerhhevg3f8alto548tixjs3s45n';
-const WA_NUMBER   = '34644659106';
+const WA_NUMBER   = '34644649106';
 
 export function FormSection() {
   const sectionRef = useRef<HTMLElement>(null);
