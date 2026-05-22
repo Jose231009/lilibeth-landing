@@ -899,7 +899,7 @@ footer a:hover{color:var(--gold)}
 
 <!-- STICKY MOBILE -->
 <div class="sticky-mobile" id="sticky">
-  <a href="#formulario" class="btn">Quiero saber cómo funciona <span class="arrow">→</span></a>
+  <a href="#s-how" class="btn">Quiero saber cómo funciona <span class="arrow">→</span></a>
 </div>
 
 <!-- FLOAT WA -->
@@ -968,8 +968,9 @@ ScrollTrigger.create({trigger:'#formulario',start:'top 78%',once:true,onEnter:()
 }});
 
 /* Sticky hide near form */
-const stickyEl=document.getElementById('sticky'),formEl=document.getElementById('formulario');
-ScrollTrigger.create({trigger:formEl,start:'top 90%',end:'bottom bottom',onEnter:()=>stickyEl.style.display='none',onLeaveBack:()=>stickyEl.style.display='block'});
+const stickyEl=document.getElementById('sticky'),formEl=document.getElementById('formulario'),howEl=document.getElementById('s-how');
+ScrollTrigger.create({trigger:howEl,start:'top 80%',end:'bottom bottom',onEnter:()=>stickyEl.style.display='none',onLeaveBack:()=>stickyEl.style.display='block'});
+ScrollTrigger.create({trigger:formEl,start:'top 90%',end:'bottom bottom',onEnter:()=>stickyEl.style.display='none',onLeaveBack:()=>stickyEl.style.display='none'});
 
 /* FAQ */
 function toggleFaq(btn){
