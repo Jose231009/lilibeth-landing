@@ -1,0 +1,408 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────
+   DESIGN TOKENS — Lilibeth París (cliente)
+   NOTA: Paleta dorada champagne, NO los tokens de LeadShield
+   ───────────────────────────────────────────────────────── */
+:root {
+  /* Colores cliente */
+  --color-bg:          #0a0a0a;
+  --color-surface:     #111111;
+  --color-card:        rgba(255, 255, 255, 0.04);
+  --color-accent:      #C9A96E;
+  --color-accent-dim:  rgba(201, 169, 110, 0.15);
+  --color-border:      rgba(255, 255, 255, 0.08);
+  --color-border-gold: rgba(201, 169, 110, 0.2);
+  --color-text:        #ffffff;
+  --color-muted:       rgba(255, 255, 255, 0.55);
+
+  /* Duraciones — del skill */
+  --dur-instant:  80ms;
+  --dur-fast:     150ms;
+  --dur-normal:   300ms;
+  --dur-slow:     500ms;
+  --dur-xslow:    800ms;
+  --dur-entrance: 1000ms;
+
+  /* Easings — nunca linear para UI */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in:     cubic-bezier(0.55, 0, 1, 0.45);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-snappy: cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* Sombras doradas */
+  --shadow-glow:    0 0 30px rgba(201, 169, 110, 0.25);
+  --shadow-glow-lg: 0 0 60px rgba(201, 169, 110, 0.18), 0 0 120px rgba(201, 169, 110, 0.08);
+  --shadow-card:    0 8px 32px rgba(0, 0, 0, 0.5);
+
+  /* Blur */
+  --blur-sm: blur(8px);
+  --blur-md: blur(16px);
+  --blur-lg: blur(32px);
+}
+
+/* ─────────────────────────────────────────────────────────
+   ACCESIBILIDAD OBLIGATORIA (del skill)
+   ───────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:       0.01ms !important;
+    animation-iteration-count: 1     !important;
+    transition-duration:      0.01ms !important;
+    scroll-behavior:          auto   !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   BASE
+   ───────────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────
+   SCROLL REVEAL — del skill (useScrollReveal hook)
+   Solo transform/opacity — NUNCA top/left/width/height
+   ───────────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity  var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+}
+.reveal.revealed  { opacity: 1; transform: translateY(0); }
+.reveal-left      { opacity: 0; transform: translateX(-40px); transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
+.reveal-left.revealed  { opacity: 1; transform: translateX(0); }
+.reveal-right     { opacity: 0; transform: translateX(40px);  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
+.reveal-right.revealed { opacity: 1; transform: translateX(0); }
+.reveal-scale     { opacity: 0; transform: scale(0.92);       transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
+.reveal-scale.revealed { opacity: 1; transform: scale(1); }
+
+/* Delays para stagger manual vía CSS */
+.delay-1  { transition-delay: 0.08s; }
+.delay-2  { transition-delay: 0.16s; }
+.delay-3  { transition-delay: 0.24s; }
+.delay-4  { transition-delay: 0.32s; }
+.delay-5  { transition-delay: 0.40s; }
+
+/* ─────────────────────────────────────────────────────────
+   BOTÓN PRIMARIO — del skill (ripple dinámico)
+   ───────────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--color-accent);
+  color: #0a0a0a;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition:
+    transform  var(--dur-fast)   var(--ease-spring),
+    box-shadow var(--dur-normal) var(--ease-out);
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(255,255,255,0.35) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity var(--dur-normal) var(--ease-out);
+}
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-glow);
+}
+.btn-primary:hover::after { opacity: 1; }
+.btn-primary:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: var(--dur-instant);
+}
+
+/* Variante ghost */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-border-gold);
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition:
+    transform     var(--dur-fast)   var(--ease-spring),
+    box-shadow    var(--dur-normal) var(--ease-out),
+    border-color  var(--dur-normal) var(--ease-out),
+    background    var(--dur-normal) var(--ease-out);
+}
+.btn-ghost:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+  background: var(--color-accent-dim);
+  box-shadow: var(--shadow-glow);
+}
+.btn-ghost:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: var(--dur-instant);
+}
+
+/* ─────────────────────────────────────────────────────────
+   GLASSMORPHISM CARD — del skill
+   ───────────────────────────────────────────────────────── */
+.card-glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: var(--blur-md);
+  -webkit-backdrop-filter: var(--blur-md);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  transition:
+    transform     var(--dur-normal) var(--ease-spring),
+    border-color  var(--dur-normal) var(--ease-out),
+    box-shadow    var(--dur-normal) var(--ease-out);
+}
+.card-glass:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: var(--color-border-gold);
+  box-shadow: var(--shadow-glow), var(--shadow-card);
+}
+
+/* ─────────────────────────────────────────────────────────
+   BORDE GIRATORIO (border-spin) — del skill
+   Adaptado con dorado del cliente
+   ───────────────────────────────────────────────────────── */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+.glass-border-spin {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: var(--blur-md);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.glass-border-spin::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    transparent 0%,
+    #C9A96E 20%,
+    transparent 40%
+  );
+  z-index: 0;
+  animation: border-spin 4s linear infinite;
+}
+.glass-border-spin::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: 19px;
+  background: #111111;
+  z-index: 0;
+}
+.glass-border-spin > * { position: relative; z-index: 1; }
+
+@keyframes border-spin { to { --angle: 360deg; } }
+
+/* ─────────────────────────────────────────────────────────
+   NOISE TEXTURE + ATMOSPHERE — del skill
+   ───────────────────────────────────────────────────────── */
+.section-atmosphere::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 30% 50%, rgba(201,169,110,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 20%, rgba(10,10,10,0.8)     0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+.section-atmosphere > * { position: relative; z-index: 1; }
+
+/* ─────────────────────────────────────────────────────────
+   MARQUEE — destinations
+   ───────────────────────────────────────────────────────── */
+@keyframes marquee  { 0% { transform: translateX(0%);   } 100% { transform: translateX(-50%); } }
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* Gradient mask bordes */
+.marquee-fade {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+/* ─────────────────────────────────────────────────────────
+   PROGRESS BAR — del skill
+   ───────────────────────────────────────────────────────── */
+.progress-bar {
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-bar::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: var(--progress, 0%);
+  background: linear-gradient(90deg, var(--color-accent), rgba(201,169,110,0.5));
+  border-radius: 999px;
+  animation: progress-fill 1.2s var(--ease-out) forwards;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes progress-fill { from { width: 0%; } to { width: var(--progress, 0%); } }
+
+/* ─────────────────────────────────────────────────────────
+   LOADER DOTS — del skill
+   ───────────────────────────────────────────────────────── */
+.loader-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.loader-dots span {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: dot-pulse 1.2s var(--ease-out) infinite;
+}
+.loader-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loader-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes dot-pulse {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40%           { transform: scale(1.0); opacity: 1.0; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   FAQ ACCORDION
+   ───────────────────────────────────────────────────────── */
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--dur-slow) var(--ease-out);
+}
+.faq-body.open { max-height: 400px; }
+
+/* ─────────────────────────────────────────────────────────
+   FORM CONTROLS
+   ───────────────────────────────────────────────────────── */
+.form-control {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: var(--color-text);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition:
+    border-color var(--dur-normal) var(--ease-out),
+    box-shadow   var(--dur-normal) var(--ease-out),
+    background   var(--dur-normal) var(--ease-out);
+}
+.form-control::placeholder { color: var(--color-muted); }
+.form-control:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-dim);
+  background: rgba(255,255,255,0.07);
+}
+.form-control option { background: #1a1a1a; color: #fff; }
+
+/* ─────────────────────────────────────────────────────────
+   GLOW CURSOR — del skill
+   ───────────────────────────────────────────────────────── */
+.glow-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(201,169,110,0.07) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 0.18s var(--ease-out);
+  will-change: transform;
+}
+
+/* ─────────────────────────────────────────────────────────
+   EYEBROW LABEL
+   ───────────────────────────────────────────────────────── */
+.eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0.85;
+}
+
+/* WhatsApp float */
+.wa-float {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  width: 56px; height: 56px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+  z-index: 999;
+  transition: transform var(--dur-normal) var(--ease-spring), box-shadow var(--dur-normal) var(--ease-out);
+}
+.wa-float:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.5);
+}
