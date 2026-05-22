@@ -986,18 +986,58 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 });
 
 /* FORM SUBMIT */
-function enviar(){
+async function enviar(){
   const nombre=document.getElementById('f-nombre').value.trim();
   const wa=document.getElementById('f-wa').value.trim();
   const ocup=document.getElementById('f-ocup').value;
   const obj=document.getElementById('f-obj').value;
-  if(!nombre||!wa||!ocup||!obj){alert('Por favor completá todos los campos.');return;}
-  document.getElementById('ty-name').textContent=nombre.split(' ')[0];
-  const msg=encodeURIComponent(`Hola Lilibeth, me registré en tu página. Soy ${nombre} y me gustaría saber más.`);
-  document.getElementById('tc-wa').href=`https://wa.me/34644659106?text=${msg}`;
-  document.querySelector('.form-section').style.display='none';
-  const ty=document.getElementById('ty');ty.style.display='block';stickyEl.style.display='none';
-  setTimeout(()=>ty.scrollIntoView({behavior:'smooth'}),80);
+  if(!nombre||!wa||!ocup||!obj){alert('Por favor completa todos los campos.');return;}
+
+  // Loading state
+  const btn=document.querySelector('.fsubmit');
+  const origHTML=btn.innerHTML;
+  btn.disabled=true;
+  btn.innerHTML='Enviando… <span class="arrow">→</span>';
+
+  // Clear previous error
+  const prevErr=document.getElementById('form-error');
+  if(prevErr)prevErr.remove();
+
+  const payload={
+    full_name:nombre,
+    phone:wa,
+    question_1:'¿A qué te dedicas actualmente?',
+    answer_1:ocup,
+    question_2:'¿Qué buscas principalmente?',
+    answer_2:obj
+  };
+
+  try{
+    const res=await fetch('https://hook.us1.make.com/50okeerhhevg3f8alto548tixjs3s45n',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    });
+    if(!res.ok)throw new Error('HTTP '+res.status);
+
+    // Éxito — mostrar thank-you
+    document.getElementById('ty-name').textContent=nombre.split(' ')[0];
+    const msg=encodeURIComponent(`Hola Lilibeth, me registré en tu página. Soy ${nombre} y me gustaría saber más.`);
+    document.getElementById('tc-wa').href=`https://wa.me/34644659106?text=${msg}`;
+    document.querySelector('.form-section').style.display='none';
+    const ty=document.getElementById('ty');ty.style.display='block';stickyEl.style.display='none';
+    setTimeout(()=>ty.scrollIntoView({behavior:'smooth'}),80);
+
+  }catch(err){
+    // Error — restaurar botón y mostrar mensaje
+    btn.disabled=false;
+    btn.innerHTML=origHTML;
+    const errEl=document.createElement('p');
+    errEl.id='form-error';
+    errEl.style.cssText='color:#e57373;font-size:13px;text-align:center;margin-top:14px;';
+    errEl.textContent='Hubo un problema al enviar. Inténtalo de nuevo o escríbenos por WhatsApp.';
+    btn.insertAdjacentElement('afterend',errEl);
+  }
 }
 </script>
 </body>
