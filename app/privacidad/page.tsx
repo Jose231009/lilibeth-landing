@@ -10,17 +10,17 @@ export const metadata = {
 export default function PrivacidadPage() {
   return (
     <main style={{
-      background: '#0D0907',
+      background: '#F5EDE0',
       minHeight: '100vh',
       padding: 'clamp(80px, 10vw, 120px) clamp(20px, 5vw, 80px)',
-      color: '#fff',
+      color: '#1C1208',
     }}>
       <div style={{ maxWidth: '760px', margin: '0 auto' }}>
 
         {/* Back link */}
         <a href="/" style={{
           display: 'inline-flex', alignItems: 'center', gap: '6px',
-          fontSize: '13px', color: 'rgba(255,255,255,0.4)',
+          fontSize: '13px', color: 'rgba(28,18,8,0.45)',
           textDecoration: 'none', marginBottom: '48px',
           letterSpacing: '0.06em',
         }}>
@@ -132,8 +132,8 @@ export default function PrivacidadPage() {
         <p style={{
           marginTop: '60px',
           fontSize: '12px',
-          color: 'rgba(255,255,255,0.2)',
-          borderTop: '1px solid rgba(255,255,255,0.06)',
+          color: 'rgba(28,18,8,0.25)',
+          borderTop: '1px solid rgba(28,18,8,0.08)',
           paddingTop: '24px',
         }}>
           Última actualización: mayo 2026 · Madrid, España
@@ -155,7 +155,7 @@ const h2Style: React.CSSProperties = {
 const h3Style: React.CSSProperties = {
   fontSize: '14px',
   fontWeight: 600,
-  color: 'rgba(255,255,255,0.7)',
+  color: 'rgba(28,18,8,0.7)',
   marginTop: '20px',
   marginBottom: '6px',
   letterSpacing: '0.04em',
@@ -164,13 +164,13 @@ const h3Style: React.CSSProperties = {
 
 const pStyle: React.CSSProperties = {
   fontSize: '15px',
-  color: 'rgba(255,255,255,0.55)',
+  color: 'rgba(28,18,8,0.6)',
   lineHeight: 1.8,
 };
 
 const ulStyle: React.CSSProperties = {
   fontSize: '15px',
-  color: 'rgba(255,255,255,0.55)',
+  color: 'rgba(28,18,8,0.6)',
   lineHeight: 1.8,
   paddingLeft: '20px',
   listStyleType: 'disc',

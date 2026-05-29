@@ -61,7 +61,7 @@ export function AboutSection() {
       id="s-about"
       style={{
         padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
-        background: '#0D0907',
+        background: '#F5EDE0',
         position: 'relative', overflow: 'hidden',
       }}
     >
@@ -110,7 +110,7 @@ export function AboutSection() {
               borderRadius: '12px',
               padding: '12px 18px',
             }}>
-              <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)', marginBottom: '2px' }}>Madrid · España</div>
+              <div style={{ fontSize: '11px', color: 'rgba(28,18,8,0.55)', marginBottom: '2px' }}>Madrid · España</div>
               <div style={{
                 fontFamily: 'var(--font-instrument)',
                 fontStyle: 'italic',
@@ -148,7 +148,7 @@ export function AboutSection() {
             ].map((p, i) => (
               <p key={i} style={{
                 fontSize: 'clamp(14px, 1.8vw, 16px)',
-                color: i === 1 ? 'rgba(255,255,255,0.75)' : 'rgba(255,255,255,0.55)',
+                color: i === 1 ? 'rgba(28,18,8,0.75)' : 'rgba(28,18,8,0.6)',
                 lineHeight: 1.75,
               }}>
                 {p}
@@ -160,7 +160,7 @@ export function AboutSection() {
           <div style={{
             display: 'flex', alignItems: 'center', gap: '16px',
             padding: '20px 0',
-            borderTop: '1px solid rgba(255,255,255,0.07)',
+            borderTop: '1px solid rgba(28,18,8,0.09)',
             marginBottom: '36px',
           }}>
             <div>
@@ -172,7 +172,7 @@ export function AboutSection() {
               }}>
                 Lilibeth Paris
               </div>
-              <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.06em' }}>
+              <div style={{ fontSize: '12px', color: 'rgba(28,18,8,0.45)', letterSpacing: '0.06em' }}>
                 MENTORA · ES + LATAM
               </div>
             </div>
@@ -198,7 +198,7 @@ export function AboutSection() {
                 }}>
                   <AnimatedCounter target={val} suffix={suf} duration={1000} />
                 </div>
-                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)', marginTop: '4px' }}>
+                <div style={{ fontSize: '11px', color: 'rgba(28,18,8,0.45)', marginTop: '4px' }}>
                   {label}
                 </div>
               </div>

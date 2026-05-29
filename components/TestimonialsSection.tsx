@@ -76,7 +76,7 @@ export function TestimonialsSection() {
   return (
     <section style={{
       padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
-      background: '#110C09',
+      background: '#EDE0CE',
     }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <div
@@ -108,7 +108,7 @@ export function TestimonialsSection() {
               <Stars />
               <p style={{
                 fontSize: '15px',
-                color: 'rgba(255,255,255,0.7)',
+                color: 'rgba(28,18,8,0.7)',
                 lineHeight: 1.75,
                 marginBottom: '24px',
                 fontStyle: 'italic',
@@ -133,7 +133,7 @@ export function TestimonialsSection() {
                 </div>
                 <div>
                   <div style={{ fontWeight: 600, fontSize: '14px' }}>{name}</div>
-                  <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)' }}>{country}</div>
+                  <div style={{ fontSize: '12px', color: 'rgba(28,18,8,0.45)' }}>{country}</div>
                 </div>
               </div>
               <div style={{

@@ -7,16 +7,17 @@
    NOTA: Paleta dorada champagne, NO los tokens de LeadShield
    ───────────────────────────────────────────────────────── */
 :root {
-  /* Colores cliente — Rose Gold · Blush */
-  --color-bg:          #0D0907;
-  --color-surface:     #110C09;
-  --color-card:        rgba(255, 255, 255, 0.04);
+  /* Colores cliente — Crema · Rose Gold */
+  --color-bg:          #F5EDE0;
+  --color-surface:     #EDE0CE;
+  --color-alt:         #F9F3EC;
+  --color-card:        rgba(28, 18, 8, 0.04);
   --color-accent:      #D4956A;
   --color-accent-dim:  rgba(212, 149, 106, 0.15);
-  --color-border:      rgba(255, 255, 255, 0.08);
-  --color-border-gold: rgba(212, 149, 106, 0.2);
-  --color-text:        #ffffff;
-  --color-muted:       rgba(255, 255, 255, 0.55);
+  --color-border:      rgba(28, 18, 8, 0.1);
+  --color-border-gold: rgba(212, 149, 106, 0.3);
+  --color-text:        #1C1208;
+  --color-muted:       rgba(28, 18, 8, 0.6);
 
   /* Duraciones — del skill */
   --dur-instant:  80ms;
@@ -123,7 +124,7 @@ body {
   inset: 0;
   background: radial-gradient(
     circle at var(--x, 50%) var(--y, 50%),
-    rgba(255,255,255,0.35) 0%,
+    rgba(28,18,8,0.4) 0%,
     transparent 60%
   );
   opacity: 0;
@@ -176,7 +177,7 @@ body {
    GLASSMORPHISM CARD — del skill
    ───────────────────────────────────────────────────────── */
 .card-glass {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(28, 18, 8, 0.04);
   backdrop-filter: var(--blur-md);
   -webkit-backdrop-filter: var(--blur-md);
   border: 1px solid var(--color-border);
@@ -203,7 +204,7 @@ body {
 }
 .glass-border-spin {
   position: relative;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(28, 18, 8, 0.04);
   backdrop-filter: var(--blur-md);
   border-radius: 20px;
   overflow: hidden;
@@ -227,7 +228,7 @@ body {
   position: absolute;
   inset: 1px;
   border-radius: 19px;
-  background: #110C09;
+  background: #F5EDE0;
   z-index: 0;
 }
 .glass-border-spin > * { position: relative; z-index: 1; }
@@ -285,7 +286,7 @@ body {
    ───────────────────────────────────────────────────────── */
 .progress-bar {
   height: 4px;
-  background: rgba(255,255,255,0.08);
+  background: rgba(28,18,8,0.1);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -337,7 +338,7 @@ body {
    ───────────────────────────────────────────────────────── */
 .form-control {
   width: 100%;
-  background: rgba(255,255,255,0.05);
+  background: rgba(28,18,8,0.06);
   border: 1px solid var(--color-border);
   border-radius: 10px;
   padding: 14px 16px;
@@ -354,7 +355,7 @@ body {
 .form-control:focus {
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px var(--color-accent-dim);
-  background: rgba(255,255,255,0.07);
+  background: rgba(28,18,8,0.09);
 }
 .form-control option { background: #1a1a1a; color: #fff; }
 

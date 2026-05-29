@@ -104,7 +104,7 @@ export function ModelSection() {
           </h2>
           <p style={{
             fontSize: 'clamp(14px, 1.8vw, 16px)',
-            color: 'rgba(255,255,255,0.5)',
+            color: 'rgba(28,18,8,0.55)',
             maxWidth: '520px',
             margin: '20px auto 0',
             lineHeight: 1.7,
@@ -149,13 +149,13 @@ export function ModelSection() {
                 fontWeight: 600,
                 marginBottom: '14px',
                 letterSpacing: '-0.01em',
-                color: featured ? '#fff' : 'rgba(255,255,255,0.9)',
+                color: featured ? '#fff' : 'rgba(28,18,8,0.9)',
               }}>
                 {title}
               </h3>
               <p style={{
                 fontSize: '15px',
-                color: 'rgba(255,255,255,0.55)',
+                color: 'rgba(28,18,8,0.6)',
                 lineHeight: 1.7,
               }}>
                 {text}

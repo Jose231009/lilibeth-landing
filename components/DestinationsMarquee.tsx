@@ -30,7 +30,7 @@ const dot = (
 
 export function DestinationsMarquee() {
   return (
-    <div style={{ background: '#0d0d0d', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)', overflow: 'hidden' }}>
+    <div style={{ background: '#0d0d0d', borderTop: '1px solid rgba(28,18,8,0.06)', borderBottom: '1px solid rgba(28,18,8,0.06)', overflow: 'hidden' }}>
       {/* Gradient mask — bordes difuminados del skill */}
       <div
         className="marquee-fade"
@@ -43,7 +43,7 @@ export function DestinationsMarquee() {
                 fontFamily: 'var(--font-instrument)',
                 fontStyle: 'italic',
                 fontSize: 'clamp(14px, 2vw, 17px)',
-                color: 'rgba(255,255,255,0.45)',
+                color: 'rgba(28,18,8,0.5)',
                 letterSpacing: '0.06em',
                 whiteSpace: 'nowrap',
               }}>

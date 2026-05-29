@@ -34,7 +34,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
   return (
     <div style={{
-      borderBottom: '1px solid rgba(255,255,255,0.06)',
+      borderBottom: '1px solid rgba(28,18,8,0.08)',
       transition: 'background 200ms var(--ease-out)',
       background: open ? 'rgba(201,169,110,0.03)' : 'transparent',
       borderRadius: open ? '8px' : '0',
@@ -52,7 +52,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       >
         <span style={{
           fontSize: 'clamp(15px, 1.8vw, 17px)',
-          fontWeight: 500, color: '#fff',
+          fontWeight: 500, color: '#1C1208',
           lineHeight: 1.4,
         }}>
           {q}
@@ -61,13 +61,13 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         <span style={{
           width: '28px', height: '28px', flexShrink: 0,
           borderRadius: '50%',
-          background: open ? 'rgba(201,169,110,0.15)' : 'rgba(255,255,255,0.06)',
-          border: `1px solid ${open ? 'rgba(201,169,110,0.4)' : 'rgba(255,255,255,0.08)'}`,
+          background: open ? 'rgba(201,169,110,0.15)' : 'rgba(28,18,8,0.08)',
+          border: `1px solid ${open ? 'rgba(201,169,110,0.4)' : 'rgba(28,18,8,0.1)'}`,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           // Solo transform — del skill
           transition: 'transform 300ms var(--ease-spring), background 200ms, border-color 200ms',
           transform: open ? 'rotate(45deg)' : 'rotate(0deg)',
-          color: open ? '#C9A96E' : 'rgba(255,255,255,0.5)',
+          color: open ? '#C9A96E' : 'rgba(28,18,8,0.55)',
           fontSize: '18px', fontWeight: 300, lineHeight: 1,
         }}>
           +
@@ -78,7 +78,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         <p style={{
           padding: '0 clamp(16px, 2vw, 24px) clamp(18px, 2.5vw, 24px)',
           fontSize: '15px',
-          color: 'rgba(255,255,255,0.55)',
+          color: 'rgba(28,18,8,0.6)',
           lineHeight: 1.75,
         }}>
           {a}
@@ -105,7 +105,7 @@ export function FAQSection() {
   return (
     <section style={{
       padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
-      background: '#110C09',
+      background: '#EDE0CE',
     }}>
       <div style={{ maxWidth: '760px', margin: '0 auto' }}>
         <div className="reveal" style={{ textAlign: 'center', marginBottom: 'clamp(50px, 6vw, 70px)' }}>
@@ -124,8 +124,8 @@ export function FAQSection() {
           ref={containerRef}
           className="reveal"
           style={{
-            background: 'rgba(255,255,255,0.02)',
-            border: '1px solid rgba(255,255,255,0.06)',
+            background: 'rgba(28,18,8,0.03)',
+            border: '1px solid rgba(28,18,8,0.08)',
             borderRadius: '16px',
             overflow: 'hidden',
           }}

@@ -80,7 +80,7 @@ export function HeroSection() {
         justifyContent: 'center',
         overflow: 'hidden',
         paddingTop: '72px',
-        background: 'radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.08) 0%, transparent 60%), #0a0a0a',
+        background: 'radial-gradient(ellipse at 50% 0%, rgba(212,149,106,0.2) 0%, transparent 60%), #F5EDE0',
       }}
     >
       {/* Three.js particles */}
@@ -178,7 +178,7 @@ export function HeroSection() {
           transition={{ delay: 0.85 }}
           style={{
             fontSize: 'clamp(15px, 2vw, 17px)',
-            color: 'rgba(255,255,255,0.6)',
+            color: 'rgba(28,18,8,0.65)',
             lineHeight: 1.7,
             maxWidth: '580px',
             margin: '0 auto 40px',
@@ -218,7 +218,7 @@ export function HeroSection() {
         <motion.p
           variants={fadeUp} initial="hidden" animate="visible"
           transition={{ delay: 1.1 }}
-          style={{ fontSize: '12px', color: 'rgba(255,255,255,0.35)', letterSpacing: '0.06em' }}
+          style={{ fontSize: '12px', color: 'rgba(28,18,8,0.4)', letterSpacing: '0.06em' }}
         >
           <span style={{
             display: 'inline-block', width: '6px', height: '6px',
@@ -310,7 +310,7 @@ export function HeroSection() {
               opacity: playing ? 0 : 1,
               transform: playing ? 'scale(0.7)' : 'scale(1)',
             }}>
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="#0D0907">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="#F5EDE0">
                 <path d="M8 5v14l11-7z"/>
               </svg>
             </div>
@@ -321,7 +321,7 @@ export function HeroSection() {
             <div style={{
               position: 'absolute', bottom: '16px', left: '50%',
               transform: 'translateX(-50%)',
-              fontSize: '11px', color: 'rgba(255,255,255,0.45)',
+              fontSize: '11px', color: 'rgba(28,18,8,0.5)',
               letterSpacing: '0.12em', whiteSpace: 'nowrap',
             }}>
               LILIBETH TE EXPLICA CÓMO FUNCIONA
@@ -337,10 +337,10 @@ export function HeroSection() {
           style={{
             gap: '1px',
             marginTop: '32px',
-            background: 'rgba(255,255,255,0.06)',
+            background: 'rgba(28,18,8,0.08)',
             borderRadius: '16px',
             overflow: 'hidden',
-            border: '1px solid rgba(255,255,255,0.06)',
+            border: '1px solid rgba(28,18,8,0.08)',
           }}
         >
           {stats.map(({ value, suffix, label }) => (
@@ -348,7 +348,7 @@ export function HeroSection() {
               key={label}
               style={{
                 padding: 'clamp(16px, 3vw, 28px) 16px',
-                background: 'rgba(255,255,255,0.02)',
+                background: 'rgba(28,18,8,0.03)',
                 textAlign: 'center',
               }}
             >
@@ -362,7 +362,7 @@ export function HeroSection() {
               }}>
                 <AnimatedCounter target={value} suffix={suffix} duration={1200} />
               </div>
-              <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.45)', letterSpacing: '0.05em' }}>
+              <div style={{ fontSize: '11px', color: 'rgba(28,18,8,0.5)', letterSpacing: '0.05em' }}>
                 {label}
               </div>
             </div>
@@ -379,7 +379,7 @@ export function HeroSection() {
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px',
         }}
       >
-        <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.25)', letterSpacing: '0.12em' }}>
+        <span style={{ fontSize: '11px', color: 'rgba(28,18,8,0.3)', letterSpacing: '0.12em' }}>
           SCROLL
         </span>
         <div style={{

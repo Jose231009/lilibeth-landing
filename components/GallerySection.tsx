@@ -42,7 +42,7 @@ export function GallerySection() {
   return (
     <section id="s-gallery" style={{
       padding: 'clamp(80px, 10vw, 120px) clamp(20px, 5vw, 80px)',
-      background: '#0D0907',
+      background: '#F5EDE0',
     }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <div className="reveal" style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vw, 64px)' }}>
@@ -104,14 +104,14 @@ export function GallerySection() {
                   fontFamily: 'var(--font-instrument)',
                   fontStyle: 'italic',
                   fontSize: '15px',
-                  color: '#fff',
+                  color: '#1C1208',
                   lineHeight: 1.3,
                 }}>
                   {label}
                 </div>
                 <div style={{
                   fontSize: '11px',
-                  color: 'rgba(255,255,255,0.55)',
+                  color: 'rgba(28,18,8,0.6)',
                   letterSpacing: '0.06em',
                   marginTop: '2px',
                 }}>
@@ -126,7 +126,7 @@ export function GallerySection() {
           textAlign: 'center',
           marginTop: '32px',
           fontSize: '12px',
-          color: 'rgba(255,255,255,0.25)',
+          color: 'rgba(28,18,8,0.3)',
           letterSpacing: '0.08em',
         }}>
           Momentos reales · Comunidad real · Equipo internacional

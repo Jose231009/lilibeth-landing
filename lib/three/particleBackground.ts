@@ -31,7 +31,7 @@ export async function initParticleBackground(canvas: HTMLCanvasElement) {
   geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
   const material = new THREE.PointsMaterial({
-    color: 0xD4956A,   // --color-accent del cliente
+    color: 0xB07040,   // --color-accent del cliente
     size: 0.012,
     transparent: true,
     opacity: 0.5,

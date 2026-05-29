@@ -78,7 +78,7 @@ export function HowItWorksSection() {
       id="s-how"
       style={{
         padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
-        background: '#0D0907',
+        background: '#F5EDE0',
         position: 'relative', overflow: 'hidden',
       }}
     >
@@ -113,8 +113,8 @@ export function HowItWorksSection() {
             <div key={num} className="stagger-item reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
               <div style={{
                 padding: 'clamp(28px, 3vw, 40px)',
-                background: 'rgba(255,255,255,0.02)',
-                border: '1px solid rgba(255,255,255,0.05)',
+                background: 'rgba(28,18,8,0.03)',
+                border: '1px solid rgba(28,18,8,0.06)',
                 borderRadius: '16px',
                 height: '100%',
                 position: 'relative',
@@ -127,8 +127,8 @@ export function HowItWorksSection() {
               }}
               onMouseLeave={e => {
                 const el = e.currentTarget as HTMLDivElement;
-                el.style.borderColor = 'rgba(255,255,255,0.05)';
-                el.style.background  = 'rgba(255,255,255,0.02)';
+                el.style.borderColor = 'rgba(28,18,8,0.06)';
+                el.style.background  = 'rgba(28,18,8,0.03)';
               }}
               >
                 {/* Connector line */}
@@ -172,7 +172,7 @@ export function HowItWorksSection() {
                 }}>
                   {title}
                 </h3>
-                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>
+                <p style={{ fontSize: '15px', color: 'rgba(28,18,8,0.55)', lineHeight: 1.7 }}>
                   {text}
                 </p>
               </div>

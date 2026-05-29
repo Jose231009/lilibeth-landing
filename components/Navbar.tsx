@@ -37,12 +37,12 @@ export function Navbar() {
         // Transición solo opacity y backdrop-filter — del skill
         transition: 'background 300ms var(--ease-out), box-shadow 300ms var(--ease-out)',
         background: scrolled
-          ? 'rgba(10,10,10,0.85)'
+          ? 'rgba(245,237,224,0.92)'
           : 'transparent',
         backdropFilter: scrolled ? 'blur(16px)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none',
-        boxShadow: scrolled ? '0 4px 24px rgba(0,0,0,0.3)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(28,18,8,0.1)' : 'none',
+        boxShadow: scrolled ? '0 4px 24px rgba(28,18,8,0.08)' : 'none',
       }}
     >
       {/* Logo */}
@@ -52,7 +52,7 @@ export function Navbar() {
           fontFamily: 'var(--font-instrument)',
           fontSize: '20px',
           fontStyle: 'italic',
-          color: '#C9A96E',
+          color: '#D4956A',
           textDecoration: 'none',
           letterSpacing: '0.02em',
         }}

@@ -56,7 +56,7 @@ export function PainPointsSection() {
       id="s-pain"
       style={{
         padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
-        background: '#0D0907',
+        background: '#F5EDE0',
       }}
     >
       <div style={{ maxWidth: '960px', margin: '0 auto' }}>
@@ -88,8 +88,8 @@ export function PainPointsSection() {
                   gridTemplateColumns: '56px 1fr',
                   gap: '28px',
                   padding: 'clamp(24px, 3vw, 36px) clamp(20px, 3vw, 40px)',
-                  background: i === 1 ? 'rgba(201,169,110,0.04)' : 'rgba(255,255,255,0.02)',
-                  border: '1px solid rgba(255,255,255,0.05)',
+                  background: i === 1 ? 'rgba(201,169,110,0.04)' : 'rgba(28,18,8,0.03)',
+                  border: '1px solid rgba(28,18,8,0.06)',
                   borderLeft: i === 1 ? '2px solid rgba(201,169,110,0.4)' : '2px solid transparent',
                   borderRadius: '12px',
                   alignItems: 'start',
@@ -102,7 +102,7 @@ export function PainPointsSection() {
                 }}
                 onMouseLeave={e => {
                   (e.currentTarget as HTMLDivElement).style.borderLeftColor = i === 1 ? 'rgba(201,169,110,0.4)' : 'transparent';
-                  (e.currentTarget as HTMLDivElement).style.background = i === 1 ? 'rgba(201,169,110,0.04)' : 'rgba(255,255,255,0.02)';
+                  (e.currentTarget as HTMLDivElement).style.background = i === 1 ? 'rgba(201,169,110,0.04)' : 'rgba(28,18,8,0.03)';
                 }}
               >
                 <span style={{
@@ -124,7 +124,7 @@ export function PainPointsSection() {
                   }}>
                     {title}
                   </h3>
-                  <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.7 }}>
+                  <p style={{ fontSize: '15px', color: 'rgba(28,18,8,0.6)', lineHeight: 1.7 }}>
                     {text}
                   </p>
                 </div>

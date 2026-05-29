@@ -23,7 +23,7 @@ export function UrgencySection() {
   return (
     <section style={{
       padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
-      background: '#0D0907',
+      background: '#F5EDE0',
       position: 'relative', overflow: 'hidden',
     }}>
       {/* Atmosfera — del skill */}
@@ -60,7 +60,7 @@ export function UrgencySection() {
 
         <p style={{
           fontSize: 'clamp(15px, 1.8vw, 17px)',
-          color: 'rgba(255,255,255,0.6)',
+          color: 'rgba(28,18,8,0.65)',
           lineHeight: 1.8, marginBottom: '16px',
         }}>
           Cada mes que pasa sin construir una fuente de ingresos recurrentes
@@ -68,7 +68,7 @@ export function UrgencySection() {
         </p>
         <p style={{
           fontSize: 'clamp(15px, 1.8vw, 17px)',
-          color: 'rgba(255,255,255,0.6)',
+          color: 'rgba(28,18,8,0.65)',
           lineHeight: 1.8, marginBottom: '16px',
         }}>
           No es solo dinero que dejas de ganar. Es tiempo. Es tranquilidad.
@@ -76,7 +76,7 @@ export function UrgencySection() {
         </p>
         <p style={{
           fontSize: 'clamp(15px, 1.8vw, 17px)',
-          color: 'rgba(255,255,255,0.75)',
+          color: 'rgba(28,18,8,0.75)',
           lineHeight: 1.8, fontWeight: 500,
           marginBottom: '40px',
         }}>
