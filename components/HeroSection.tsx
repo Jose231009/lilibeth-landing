@@ -275,9 +275,9 @@ export function HeroSection() {
             borderRadius: '20px',
             overflow: 'hidden',
             border: '1px solid rgba(212,149,106,0.25)',
-            boxShadow: '0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(212,149,106,0.1)',
+            boxShadow: '0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,149,106,0.1)',
             cursor: 'pointer',
-            background: '#111',
+            background: '#2C1A0E',
             aspectRatio: '16/9',
             maxWidth: '820px',
             margin: '52px auto 0',
@@ -286,46 +286,88 @@ export function HeroSection() {
           <video
             ref={videoRef}
             src="/assets/video-lili.mp4"
+            poster="/assets/lilibeth-about.jpeg"
             onEnded={() => setPlaying(false)}
             playsInline
             preload="none"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
           />
 
-          {/* Overlay + botón play */}
+          {/* Overlay degradado — solo cuando no está reproduciendo */}
           <div style={{
             position: 'absolute', inset: 0,
             background: playing
               ? 'transparent'
-              : 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.15) 100%)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
+              : 'linear-gradient(160deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.55) 100%)',
             transition: 'background 400ms ease',
+            pointerEvents: 'none',
+          }} />
+
+          {/* Botón play centrado */}
+          <div style={{
+            position: 'absolute', inset: 0,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}>
             <div style={{
-              width: '76px', height: '76px',
+              width: '80px', height: '80px',
               borderRadius: '50%',
               background: 'rgba(212,149,106,0.92)',
+              backdropFilter: 'blur(4px)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 8px 40px rgba(212,149,106,0.4)',
-              transition: 'transform 200ms ease, opacity 200ms ease',
+              boxShadow: '0 8px 40px rgba(212,149,106,0.5), 0 0 0 12px rgba(212,149,106,0.15)',
+              transition: 'transform 250ms var(--ease-spring), opacity 250ms ease',
               opacity: playing ? 0 : 1,
-              transform: playing ? 'scale(0.7)' : 'scale(1)',
+              transform: playing ? 'scale(0.6)' : 'scale(1)',
             }}>
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="#F5EDE0">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="#F5EDE0" style={{ marginLeft: '3px' }}>
                 <path d="M8 5v14l11-7z"/>
               </svg>
             </div>
           </div>
 
-          {/* Label inferior */}
+          {/* Tarjeta inferior — título + duración */}
           {!playing && (
             <div style={{
-              position: 'absolute', bottom: '16px', left: '50%',
-              transform: 'translateX(-50%)',
-              fontSize: '11px', color: 'rgba(28,18,8,0.5)',
-              letterSpacing: '0.12em', whiteSpace: 'nowrap',
+              position: 'absolute', bottom: '20px', left: '20px', right: '20px',
+              display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end',
             }}>
-              LILIBETH TE EXPLICA CÓMO FUNCIONA
+              <div style={{
+                background: 'rgba(245,237,224,0.12)',
+                backdropFilter: 'blur(12px)',
+                border: '1px solid rgba(245,237,224,0.2)',
+                borderRadius: '12px',
+                padding: '10px 16px',
+              }}>
+                <div style={{
+                  fontFamily: 'var(--font-instrument)',
+                  fontStyle: 'italic',
+                  fontSize: '15px',
+                  color: 'rgba(245,237,224,0.95)',
+                  lineHeight: 1.3,
+                  marginBottom: '3px',
+                }}>
+                  Mi historia · cómo lo construí
+                </div>
+                <div style={{
+                  fontSize: '10px',
+                  color: 'rgba(245,237,224,0.55)',
+                  letterSpacing: '0.1em',
+                }}>
+                  LILIBETH PARIS
+                </div>
+              </div>
+              <div style={{
+                background: 'rgba(212,149,106,0.85)',
+                backdropFilter: 'blur(8px)',
+                borderRadius: '8px',
+                padding: '6px 12px',
+                fontSize: '11px',
+                color: '#F5EDE0',
+                letterSpacing: '0.08em',
+                fontWeight: 600,
+              }}>
+                ▶ VER
+              </div>
             </div>
           )}
         </motion.div>
