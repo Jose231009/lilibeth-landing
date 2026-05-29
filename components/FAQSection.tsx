@@ -8,8 +8,8 @@ import { useEffect, useRef, useState } from 'react';
 
 const faqs = [
   {
-    q: '¿No será esto otro network marketing de productos?',
-    a: 'No. Acá no acumulás productos, no perseguís a nadie y no empiezas de cero cada mes. El modelo es completamente diferente — y en cuanto lo veas, vas a entender exactamente por qué.',
+    q: '¿Qué modelo de negocio es este exactamente?',
+    a: 'Es marketing de red — sí, lo digo directamente. Pero no es lo que probablemente imaginás. No hay productos para acumular en casa, no hay presión para vender a familia y amigos, y no empezás desde cero cada mes. El modelo se basa en construir una red de distribución de una membresía de viajes con demanda real. Puedo mostrarte los números, el sistema y cómo funciona paso a paso — sin letra pequeña.',
   },
   {
     q: 'No tengo experiencia en ventas ni en negocios online.',

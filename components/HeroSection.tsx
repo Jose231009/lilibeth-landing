@@ -54,9 +54,9 @@ const stats = [
 ];
 
 export function HeroSection() {
-  const headline1 = ['Viajá', 'el', 'mundo'];
-  const headline2 = ['mientras', 'tus', 'ingresos'];
-  const headline3 = ['trabajan', 'por', 'ti'];
+  const headline1 = ['Trabajaba', 'mucho.'];
+  const headline2 = ['Ganaba', 'poco.'];
+  const headline3 = ['Cambié', 'el', 'modelo.'];
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
@@ -163,6 +163,7 @@ export function HeroSection() {
                 style={{
                   display: 'inline-block',
                   fontStyle: i === 2 ? 'italic' : 'normal',
+                  color: i === 2 ? '#C9A96E' : 'inherit',
                 }}
               >
                 {w}
@@ -183,8 +184,8 @@ export function HeroSection() {
             margin: '0 auto 40px',
           }}
         >
-          Descubrí el modelo que +200 personas en 12 países usan para generar
-          ingresos recurrentes — mientras viajan y viven sin depender de un horario fijo.
+          Sin filtros, sin guion. En el video de abajo te cuento exactamente cómo
+          construí ingresos que no dependen de mi presencia — y cómo puedes hacer lo mismo.
         </motion.p>
 
         {/* CTAs con ripple del skill */}

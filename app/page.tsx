@@ -38,16 +38,48 @@ function WAFloat() {
 function Footer() {
   return (
     <footer style={{
-      padding: '32px clamp(20px, 5vw, 80px)',
+      padding: '40px clamp(20px, 5vw, 80px)',
       borderTop: '1px solid rgba(255,255,255,0.05)',
       background: '#0a0a0a',
       textAlign: 'center',
     }}>
-      <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.25)' }}>
-        © 2026 Lilibeth Paris · Todos los derechos reservados ·{' '}
-        <a href="#" style={{ color: 'rgba(255,255,255,0.35)', textDecoration: 'underline' }}>
-          Privacidad
+      {/* Instagram */}
+      <div style={{ marginBottom: '20px' }}>
+        <a
+          href="https://www.instagram.com/lilibethparis_/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-flex', alignItems: 'center', gap: '8px',
+            fontSize: '13px', color: '#C9A96E',
+            textDecoration: 'none', letterSpacing: '0.06em',
+            padding: '8px 18px',
+            border: '1px solid rgba(201,169,110,0.25)',
+            borderRadius: '20px',
+          }}
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+          </svg>
+          @lilibethparis_
         </a>
+      </div>
+
+      <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.2)', lineHeight: 1.8 }}>
+        © 2026 Lilibeth Paris · Todos los derechos reservados
+      </p>
+      <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.18)', marginTop: '6px' }}>
+        <a href="/privacidad" style={{ color: 'rgba(255,255,255,0.35)', textDecoration: 'underline', marginRight: '16px' }}>
+          Política de Privacidad
+        </a>
+        <a href="/privacidad#aviso-legal" style={{ color: 'rgba(255,255,255,0.35)', textDecoration: 'underline' }}>
+          Aviso Legal
+        </a>
+      </p>
+      <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.12)', marginTop: '10px', maxWidth: '560px', margin: '10px auto 0', lineHeight: 1.7 }}>
+        Los resultados presentados son experiencias personales. Los resultados individuales varían y dependen del esfuerzo y dedicación de cada persona.
       </p>
     </footer>
   );

@@ -60,6 +60,37 @@ export function Navbar() {
         Lilibeth Paris
       </a>
 
+      {/* Instagram */}
+      <a
+        href="https://www.instagram.com/lilibethparis_/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram de Lilibeth Paris"
+        style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          width: '36px', height: '36px',
+          borderRadius: '50%',
+          border: '1px solid rgba(201,169,110,0.3)',
+          color: '#C9A96E',
+          transition: 'background 200ms, border-color 200ms',
+          flexShrink: 0,
+        }}
+        onMouseEnter={e => {
+          (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(201,169,110,0.1)';
+          (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(201,169,110,0.6)';
+        }}
+        onMouseLeave={e => {
+          (e.currentTarget as HTMLAnchorElement).style.background = 'transparent';
+          (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(201,169,110,0.3)';
+        }}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+
       {/* CTA */}
       <button
         className="btn-primary"
