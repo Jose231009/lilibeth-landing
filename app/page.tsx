@@ -9,6 +9,7 @@ import { DestinationsMarquee }  from '@/components/DestinationsMarquee';
 import { PainPointsSection }    from '@/components/PainPointsSection';
 import { ModelSection }         from '@/components/ModelSection';
 import { AboutSection }         from '@/components/AboutSection';
+import { VideoSection }          from '@/components/VideoSection';
 import { TestimonialsSection }  from '@/components/TestimonialsSection';
 import { HowItWorksSection }    from '@/components/HowItWorksSection';
 import { FAQSection }           from '@/components/FAQSection';
@@ -63,6 +64,7 @@ export default function Home() {
         <PainPointsSection />
         <ModelSection />
         <AboutSection />
+        <VideoSection />
         <TestimonialsSection />
         <HowItWorksSection />
         <FAQSection />
