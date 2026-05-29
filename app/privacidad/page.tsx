@@ -10,7 +10,7 @@ export const metadata = {
 export default function PrivacidadPage() {
   return (
     <main style={{
-      background: '#0a0a0a',
+      background: '#0D0907',
       minHeight: '100vh',
       padding: 'clamp(80px, 10vw, 120px) clamp(20px, 5vw, 80px)',
       color: '#fff',

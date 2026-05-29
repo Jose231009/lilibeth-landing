@@ -23,7 +23,7 @@ export function UrgencySection() {
   return (
     <section style={{
       padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
-      background: '#0a0a0a',
+      background: '#0D0907',
       position: 'relative', overflow: 'hidden',
     }}>
       {/* Atmosfera — del skill */}

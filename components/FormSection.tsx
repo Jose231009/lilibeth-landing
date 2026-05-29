@@ -85,7 +85,7 @@ export function FormSection() {
       className="reveal section-atmosphere"
       style={{
         padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
-        background: '#0f0f0f',
+        background: '#110C09',
         position: 'relative', overflow: 'hidden',
       }}
     >

@@ -40,7 +40,7 @@ function Footer() {
     <footer style={{
       padding: '40px clamp(20px, 5vw, 80px)',
       borderTop: '1px solid rgba(255,255,255,0.05)',
-      background: '#0a0a0a',
+      background: '#0D0907',
       textAlign: 'center',
     }}>
       {/* Instagram */}
@@ -51,10 +51,10 @@ function Footer() {
           rel="noopener noreferrer"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
-            fontSize: '13px', color: '#C9A96E',
+            fontSize: '13px', color: '#D4956A',
             textDecoration: 'none', letterSpacing: '0.06em',
             padding: '8px 18px',
-            border: '1px solid rgba(201,169,110,0.25)',
+            border: '1px solid rgba(212,149,106,0.25)',
             borderRadius: '20px',
           }}
         >

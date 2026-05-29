@@ -310,7 +310,7 @@ export function HeroSection() {
               opacity: playing ? 0 : 1,
               transform: playing ? 'scale(0.7)' : 'scale(1)',
             }}>
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="#0a0a0a">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="#0D0907">
                 <path d="M8 5v14l11-7z"/>
               </svg>
             </div>

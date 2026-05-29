@@ -42,7 +42,7 @@ export function GallerySection() {
   return (
     <section id="s-gallery" style={{
       padding: 'clamp(80px, 10vw, 120px) clamp(20px, 5vw, 80px)',
-      background: '#0a0a0a',
+      background: '#0D0907',
     }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <div className="reveal" style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vw, 64px)' }}>

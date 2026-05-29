@@ -105,7 +105,7 @@ export function FAQSection() {
   return (
     <section style={{
       padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
-      background: '#0f0f0f',
+      background: '#110C09',
     }}>
       <div style={{ maxWidth: '760px', margin: '0 auto' }}>
         <div className="reveal" style={{ textAlign: 'center', marginBottom: 'clamp(50px, 6vw, 70px)' }}>

@@ -47,7 +47,7 @@ export function VideoSection() {
       className="reveal"
       style={{
         padding: 'clamp(80px, 10vw, 120px) clamp(20px, 5vw, 80px)',
-        background: '#080808',
+        background: '#0A0806',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -123,7 +123,7 @@ export function VideoSection() {
               boxShadow: '0 8px 32px rgba(201,169,110,0.3)',
             }}>
               {/* Play icon */}
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="#0a0a0a">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="#0D0907">
                 <path d="M8 5v14l11-7z"/>
               </svg>
             </div>

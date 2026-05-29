@@ -9,16 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg:          '#0a0a0a',
-        surface:     '#111111',
-        accent:      '#C9A96E',
-        'accent-dim':'rgba(201,169,110,0.15)',
+        bg:          '#0D0907',
+        surface:     '#110C09',
+        accent:      '#D4956A',
+        'accent-dim':'rgba(212,149,106,0.15)',
         gold: {
-          100: '#F5E6C8',
-          300: '#E0C080',
-          500: '#C9A96E',
-          700: '#A07840',
-          900: '#6B4F22',
+          100: '#F0C9B0',
+          300: '#E8A880',
+          500: '#D4956A',
+          700: '#A06040',
+          900: '#6B3A22',
         },
       },
       fontFamily: {
@@ -26,8 +26,8 @@ const config: Config = {
         sans:   ['var(--font-outfit)',     'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        glow:    '0 0 30px rgba(201,169,110,0.25)',
-        'glow-lg':'0 0 60px rgba(201,169,110,0.18), 0 0 120px rgba(201,169,110,0.08)',
+        glow:    '0 0 30px rgba(212,149,106,0.25)',
+        'glow-lg':'0 0 60px rgba(212,149,106,0.18), 0 0 120px rgba(212,149,106,0.08)',
         card:    '0 8px 32px rgba(0,0,0,0.5)',
       },
       backdropBlur: {
