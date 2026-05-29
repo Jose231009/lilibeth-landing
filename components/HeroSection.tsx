@@ -4,12 +4,14 @@
 // • Three.js particles (dynamic import, ssr:false)
 // • GlowCursor
 // • Headline: Framer Motion stagger (pageVariants del skill)
+// • Video player con play/pause
 // • Stats: AnimatedCounter con IntersectionObserver
 // • Botones: ripple dinámico del skill
 // ─────────────────────────────────────────────────────────
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useRef, useState } from 'react';
 import { GlowCursor } from './GlowCursor';
 import { AnimatedCounter } from './AnimatedCounter';
 
@@ -55,6 +57,16 @@ export function HeroSection() {
   const headline1 = ['Viajá', 'el', 'mundo'];
   const headline2 = ['mientras', 'tus', 'ingresos'];
   const headline3 = ['trabajan', 'por', 'ti'];
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  const togglePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) { v.play(); setPlaying(true); }
+    else          { v.pause(); setPlaying(false); }
+  };
 
   return (
     <section
@@ -250,14 +262,80 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Stats con AnimatedCounter — del skill */}
+        {/* ── VIDEO ── */}
         <motion.div
           variants={fadeUp} initial="hidden" animate="visible"
           transition={{ delay: 1.2 }}
+          onClick={togglePlay}
+          style={{
+            position: 'relative',
+            marginTop: '52px',
+            borderRadius: '20px',
+            overflow: 'hidden',
+            border: '1px solid rgba(201,169,110,0.25)',
+            boxShadow: '0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(201,169,110,0.1)',
+            cursor: 'pointer',
+            background: '#111',
+            aspectRatio: '16/9',
+            maxWidth: '820px',
+            margin: '52px auto 0',
+          }}
+        >
+          <video
+            ref={videoRef}
+            src="/assets/video-lili.mp4"
+            onEnded={() => setPlaying(false)}
+            playsInline
+            preload="metadata"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+
+          {/* Overlay + botón play */}
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: playing
+              ? 'transparent'
+              : 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.15) 100%)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            transition: 'background 400ms ease',
+          }}>
+            <div style={{
+              width: '76px', height: '76px',
+              borderRadius: '50%',
+              background: 'rgba(201,169,110,0.92)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: '0 8px 40px rgba(201,169,110,0.4)',
+              transition: 'transform 200ms ease, opacity 200ms ease',
+              opacity: playing ? 0 : 1,
+              transform: playing ? 'scale(0.7)' : 'scale(1)',
+            }}>
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="#0a0a0a">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+
+          {/* Label inferior */}
+          {!playing && (
+            <div style={{
+              position: 'absolute', bottom: '16px', left: '50%',
+              transform: 'translateX(-50%)',
+              fontSize: '11px', color: 'rgba(255,255,255,0.45)',
+              letterSpacing: '0.12em', whiteSpace: 'nowrap',
+            }}>
+              LILIBETH TE EXPLICA CÓMO FUNCIONA
+            </div>
+          )}
+        </motion.div>
+
+        {/* Stats con AnimatedCounter — del skill */}
+        <motion.div
+          variants={fadeUp} initial="hidden" animate="visible"
+          transition={{ delay: 1.4 }}
           className="stats-grid"
           style={{
             gap: '1px',
-            marginTop: '64px',
+            marginTop: '32px',
             background: 'rgba(255,255,255,0.06)',
             borderRadius: '16px',
             overflow: 'hidden',
