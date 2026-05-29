@@ -69,7 +69,7 @@ export function AboutSection() {
       <div aria-hidden style={{
         position: 'absolute', top: 0, left: '-10%',
         width: '50%', height: '100%',
-        background: 'radial-gradient(ellipse at 0% 50%, rgba(201,169,110,0.05) 0%, transparent 60%)',
+        background: 'radial-gradient(ellipse at 0% 50%, rgba(212,149,106,0.05) 0%, transparent 60%)',
         pointerEvents: 'none',
       }} />
 
@@ -84,7 +84,7 @@ export function AboutSection() {
             position: 'relative',
             borderRadius: '20px',
             overflow: 'hidden',
-            border: '1px solid rgba(201,169,110,0.2)',
+            border: '1px solid rgba(212,149,106,0.2)',
             boxShadow: '0 32px 80px rgba(0,0,0,0.6)',
             aspectRatio: '3/4',
           }}>
@@ -104,9 +104,9 @@ export function AboutSection() {
             {/* Badge superpuesto */}
             <div style={{
               position: 'absolute', bottom: '20px', left: '20px',
-              background: 'rgba(10,10,10,0.85)',
+              background: 'rgba(245,237,224,0.92)',
               backdropFilter: 'blur(12px)',
-              border: '1px solid rgba(201,169,110,0.3)',
+              border: '1px solid rgba(212,149,106,0.35)',
               borderRadius: '12px',
               padding: '12px 18px',
             }}>
@@ -115,7 +115,7 @@ export function AboutSection() {
                 fontFamily: 'var(--font-instrument)',
                 fontStyle: 'italic',
                 fontSize: '16px',
-                color: '#C9A96E',
+                color: '#D4956A',
               }}>
                 Est. 2020
               </div>
@@ -134,7 +134,7 @@ export function AboutSection() {
             marginBottom: '28px',
           }}>
             Hola, soy<br />
-            <em style={{ color: '#C9A96E' }}>Lilibeth Paris</em>
+            <em style={{ color: '#D4956A' }}>Lilibeth Paris</em>
           </h2>
 
           <div style={{
@@ -168,7 +168,7 @@ export function AboutSection() {
                 fontFamily: 'var(--font-instrument)',
                 fontStyle: 'italic',
                 fontSize: '22px',
-                color: '#C9A96E',
+                color: '#D4956A',
               }}>
                 Lilibeth Paris
               </div>
@@ -187,14 +187,14 @@ export function AboutSection() {
             ].map(({ val, suf, label }) => (
               <div key={label} style={{
                 padding: '16px',
-                background: 'rgba(201,169,110,0.05)',
-                border: '1px solid rgba(201,169,110,0.15)',
+                background: 'rgba(212,149,106,0.05)',
+                border: '1px solid rgba(212,149,106,0.15)',
                 borderRadius: '12px',
                 textAlign: 'center',
               }}>
                 <div style={{
                   fontFamily: 'var(--font-instrument)',
-                  fontSize: '32px', color: '#C9A96E',
+                  fontSize: '32px', color: '#D4956A',
                 }}>
                   <AnimatedCounter target={val} suffix={suf} duration={1000} />
                 </div>

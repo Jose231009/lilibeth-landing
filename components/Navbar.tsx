@@ -70,18 +70,18 @@ export function Navbar() {
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           width: '36px', height: '36px',
           borderRadius: '50%',
-          border: '1px solid rgba(201,169,110,0.3)',
-          color: '#C9A96E',
+          border: '1px solid rgba(212,149,106,0.3)',
+          color: '#D4956A',
           transition: 'background 200ms, border-color 200ms',
           flexShrink: 0,
         }}
         onMouseEnter={e => {
-          (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(201,169,110,0.1)';
-          (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(201,169,110,0.6)';
+          (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(212,149,106,0.1)';
+          (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(212,149,106,0.6)';
         }}
         onMouseLeave={e => {
           (e.currentTarget as HTMLAnchorElement).style.background = 'transparent';
-          (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(201,169,110,0.3)';
+          (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(212,149,106,0.3)';
         }}
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">

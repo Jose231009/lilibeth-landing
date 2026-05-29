@@ -53,7 +53,7 @@ export function GallerySection() {
             fontWeight: 400, lineHeight: 1.1,
           }}>
             El mundo desde otra<br />
-            <em style={{ color: '#C9A96E' }}>perspectiva</em>
+            <em style={{ color: '#D4956A' }}>perspectiva</em>
           </h2>
         </div>
 

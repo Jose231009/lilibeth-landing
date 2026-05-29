@@ -30,7 +30,7 @@ export function UrgencySection() {
       <div aria-hidden style={{
         position: 'absolute', inset: 0,
         background: `
-          radial-gradient(ellipse at 30% 50%, rgba(201,169,110,0.06) 0%, transparent 60%),
+          radial-gradient(ellipse at 30% 50%, rgba(212,149,106,0.06) 0%, transparent 60%),
           radial-gradient(ellipse at 70% 20%, rgba(10,10,10,0.8) 0%, transparent 50%)
         `,
         pointerEvents: 'none',
@@ -40,7 +40,7 @@ export function UrgencySection() {
         position: 'absolute', top: 0, left: '50%',
         transform: 'translateX(-50%)',
         width: '1px', height: '80px',
-        background: 'linear-gradient(to bottom, transparent, rgba(201,169,110,0.4), transparent)',
+        background: 'linear-gradient(to bottom, transparent, rgba(212,149,106,0.4), transparent)',
       }} />
 
       <div ref={ref} className="reveal" style={{
@@ -55,7 +55,7 @@ export function UrgencySection() {
           marginBottom: '28px',
         }}>
           Lo que te cuesta<br />
-          <em style={{ color: '#C9A96E' }}>seguir como estás</em>
+          <em style={{ color: '#D4956A' }}>seguir como estás</em>
         </h2>
 
         <p style={{
@@ -81,7 +81,7 @@ export function UrgencySection() {
           marginBottom: '40px',
         }}>
           No se trata de que lo que haces hoy esté mal.
-          Se trata de que mereces tener <em style={{ color: '#C9A96E' }}>opciones</em>.
+          Se trata de que mereces tener <em style={{ color: '#D4956A' }}>opciones</em>.
         </p>
 
         <button

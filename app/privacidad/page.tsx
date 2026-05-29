@@ -32,7 +32,7 @@ export default function PrivacidadPage() {
           fontStyle: 'italic',
           fontSize: 'clamp(28px, 4vw, 42px)',
           fontWeight: 400,
-          color: '#C9A96E',
+          color: '#D4956A',
           marginBottom: '48px',
           lineHeight: 1.2,
         }}>
@@ -147,7 +147,7 @@ export default function PrivacidadPage() {
 const h2Style: React.CSSProperties = {
   fontSize: 'clamp(16px, 2vw, 19px)',
   fontWeight: 600,
-  color: '#C9A96E',
+  color: '#D4956A',
   marginBottom: '12px',
   letterSpacing: '0.01em',
 };
@@ -177,6 +177,6 @@ const ulStyle: React.CSSProperties = {
 };
 
 const linkStyle: React.CSSProperties = {
-  color: '#C9A96E',
+  color: '#D4956A',
   textDecoration: 'underline',
 };

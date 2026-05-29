@@ -32,7 +32,7 @@ const testimonials = [
 const Stars = () => (
   <div style={{ display: 'flex', gap: '3px', marginBottom: '16px' }}>
     {[...Array(5)].map((_, i) => (
-      <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#C9A96E">
+      <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#D4956A">
         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
       </svg>
     ))}
@@ -90,7 +90,7 @@ export function TestimonialsSection() {
             fontSize: 'clamp(32px, 4.5vw, 52px)',
             fontWeight: 400, lineHeight: 1.1,
           }}>
-            Resultados <em style={{ color: '#C9A96E' }}>reales</em><br />
+            Resultados <em style={{ color: '#D4956A' }}>reales</em><br />
             de personas normales
           </h2>
         </div>
@@ -120,13 +120,13 @@ export function TestimonialsSection() {
                 <div style={{
                   width: '40px', height: '40px',
                   borderRadius: '50%',
-                  background: 'rgba(201,169,110,0.15)',
-                  border: '1px solid rgba(201,169,110,0.3)',
+                  background: 'rgba(212,149,106,0.15)',
+                  border: '1px solid rgba(212,149,106,0.3)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontFamily: 'var(--font-instrument)',
                   fontStyle: 'italic',
                   fontSize: '14px',
-                  color: '#C9A96E',
+                  color: '#D4956A',
                   flexShrink: 0,
                 }}>
                   {initials}
@@ -139,12 +139,12 @@ export function TestimonialsSection() {
               <div style={{
                 marginTop: '16px',
                 padding: '6px 12px',
-                background: 'rgba(201,169,110,0.08)',
-                border: '1px solid rgba(201,169,110,0.2)',
+                background: 'rgba(212,149,106,0.08)',
+                border: '1px solid rgba(212,149,106,0.2)',
                 borderRadius: '20px',
                 display: 'inline-block',
                 fontSize: '11px',
-                color: '#C9A96E',
+                color: '#D4956A',
                 letterSpacing: '0.04em',
               }}>
                 {tag}

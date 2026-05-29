@@ -73,7 +73,7 @@ export function ModelSection() {
       id="s-shift"
       style={{
         padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
-        background: 'linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 100%)',
+        background: '#EDE0CE',
         position: 'relative', overflow: 'hidden',
       }}
     >
@@ -83,7 +83,7 @@ export function ModelSection() {
         transform: 'translate(-50%,-50%)',
         width: '600px', height: '400px',
         borderRadius: '50%',
-        background: 'radial-gradient(ellipse, rgba(201,169,110,0.05) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse, rgba(212,149,106,0.08) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
 
@@ -100,7 +100,7 @@ export function ModelSection() {
             fontSize: 'clamp(36px, 5vw, 60px)',
             fontWeight: 400, lineHeight: 1.1,
           }}>
-            Es <em style={{ color: '#C9A96E' }}>cambiar el modelo</em>
+            Es <em style={{ color: '#D4956A' }}>cambiar el modelo</em>
           </h2>
           <p style={{
             fontSize: 'clamp(14px, 1.8vw, 16px)',
@@ -129,7 +129,7 @@ export function ModelSection() {
               className={`stagger-item reveal ${featured ? 'glass-border-spin' : 'card-glass'}`}
               style={{
                 padding: 'clamp(28px, 3vw, 40px)',
-                ...(featured ? { background: 'rgba(201,169,110,0.04)' } : {}),
+                ...(featured ? { background: 'rgba(212,149,106,0.06)' } : {}),
               }}
             >
               {/* Número romano */}
@@ -137,7 +137,7 @@ export function ModelSection() {
                 fontFamily: 'var(--font-instrument)',
                 fontStyle: 'italic',
                 fontSize: '52px',
-                color: featured ? '#C9A96E' : 'rgba(201,169,110,0.25)',
+                color: featured ? '#D4956A' : 'rgba(212,149,106,0.35)',
                 lineHeight: 1,
                 marginBottom: '20px',
               }}>
@@ -149,7 +149,7 @@ export function ModelSection() {
                 fontWeight: 600,
                 marginBottom: '14px',
                 letterSpacing: '-0.01em',
-                color: featured ? '#fff' : 'rgba(28,18,8,0.9)',
+                color: '#1C1208',
               }}>
                 {title}
               </h3>
@@ -166,11 +166,11 @@ export function ModelSection() {
                   marginTop: '24px',
                   display: 'inline-block',
                   padding: '6px 16px',
-                  background: 'rgba(201,169,110,0.12)',
-                  border: '1px solid rgba(201,169,110,0.3)',
+                  background: 'rgba(212,149,106,0.15)',
+                  border: '1px solid rgba(212,149,106,0.35)',
                   borderRadius: '20px',
                   fontSize: '11px',
-                  color: '#C9A96E',
+                  color: '#D4956A',
                   letterSpacing: '0.1em',
                   fontWeight: 600,
                 }}>

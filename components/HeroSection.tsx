@@ -94,7 +94,7 @@ export function HeroSection() {
         aria-hidden="true"
         style={{
           position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse 70% 50% at 50% 40%, rgba(201,169,110,0.06) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 70% 50% at 50% 40%, rgba(212,149,106,0.06) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -150,7 +150,7 @@ export function HeroSection() {
                 style={{
                   display: 'inline-block',
                   fontStyle: i === 2 ? 'italic' : 'normal',
-                  color: i === 2 ? '#C9A96E' : 'inherit',
+                  color: i === 2 ? '#D4956A' : 'inherit',
                 }}
               >
                 {w}
@@ -163,7 +163,7 @@ export function HeroSection() {
                 style={{
                   display: 'inline-block',
                   fontStyle: i === 2 ? 'italic' : 'normal',
-                  color: i === 2 ? '#C9A96E' : 'inherit',
+                  color: i === 2 ? '#D4956A' : 'inherit',
                 }}
               >
                 {w}
@@ -242,8 +242,8 @@ export function HeroSection() {
         >
           <div style={{
             width: '64px', height: '64px', borderRadius: '50%',
-            overflow: 'hidden', border: '2px solid rgba(201,169,110,0.5)',
-            boxShadow: '0 0 20px rgba(201,169,110,0.2)',
+            overflow: 'hidden', border: '2px solid rgba(212,149,106,0.5)',
+            boxShadow: '0 0 20px rgba(212,149,106,0.2)',
           }}>
             <Image
               src="/assets/lilibeth-hero.jpeg"
@@ -253,10 +253,10 @@ export function HeroSection() {
             />
           </div>
           <div style={{
-            background: 'rgba(201,169,110,0.12)',
-            border: '1px solid rgba(201,169,110,0.3)',
+            background: 'rgba(212,149,106,0.12)',
+            border: '1px solid rgba(212,149,106,0.3)',
             borderRadius: '20px', padding: '4px 12px',
-            fontSize: '11px', color: '#C9A96E',
+            fontSize: '11px', color: '#D4956A',
             letterSpacing: '0.08em', fontWeight: 600,
           }}>
             +5 años
@@ -273,8 +273,8 @@ export function HeroSection() {
             marginTop: '52px',
             borderRadius: '20px',
             overflow: 'hidden',
-            border: '1px solid rgba(201,169,110,0.25)',
-            boxShadow: '0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(201,169,110,0.1)',
+            border: '1px solid rgba(212,149,106,0.25)',
+            boxShadow: '0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(212,149,106,0.1)',
             cursor: 'pointer',
             background: '#111',
             aspectRatio: '16/9',
@@ -303,9 +303,9 @@ export function HeroSection() {
             <div style={{
               width: '76px', height: '76px',
               borderRadius: '50%',
-              background: 'rgba(201,169,110,0.92)',
+              background: 'rgba(212,149,106,0.92)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 8px 40px rgba(201,169,110,0.4)',
+              boxShadow: '0 8px 40px rgba(212,149,106,0.4)',
               transition: 'transform 200ms ease, opacity 200ms ease',
               opacity: playing ? 0 : 1,
               transform: playing ? 'scale(0.7)' : 'scale(1)',
@@ -337,10 +337,10 @@ export function HeroSection() {
           style={{
             gap: '1px',
             marginTop: '32px',
-            background: 'rgba(28,18,8,0.08)',
+            background: 'rgba(28,18,8,0.07)',
             borderRadius: '16px',
             overflow: 'hidden',
-            border: '1px solid rgba(28,18,8,0.08)',
+            border: '1px solid rgba(28,18,8,0.12)',
           }}
         >
           {stats.map(({ value, suffix, label }) => (
@@ -348,7 +348,7 @@ export function HeroSection() {
               key={label}
               style={{
                 padding: 'clamp(16px, 3vw, 28px) 16px',
-                background: 'rgba(28,18,8,0.03)',
+                background: 'rgba(212,149,106,0.06)',
                 textAlign: 'center',
               }}
             >
@@ -356,7 +356,7 @@ export function HeroSection() {
                 fontFamily: 'var(--font-instrument)',
                 fontSize: 'clamp(28px, 4vw, 42px)',
                 fontWeight: 400,
-                color: '#C9A96E',
+                color: '#D4956A',
                 lineHeight: 1,
                 marginBottom: '6px',
               }}>
@@ -384,7 +384,7 @@ export function HeroSection() {
         </span>
         <div style={{
           width: '1px', height: '48px',
-          background: 'linear-gradient(to bottom, rgba(201,169,110,0.5), transparent)',
+          background: 'linear-gradient(to bottom, rgba(212,149,106,0.5), transparent)',
           animation: 'float 2s ease-in-out infinite',
         }} />
       </motion.div>

@@ -20,7 +20,7 @@ const dot = (
     display: 'inline-block',
     width: '4px', height: '4px',
     borderRadius: '50%',
-    background: '#C9A96E',
+    background: '#D4956A',
     margin: '0 28px',
     verticalAlign: 'middle',
     opacity: 0.5,

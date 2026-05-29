@@ -57,7 +57,7 @@ export function VideoSection() {
         position: 'absolute', top: '50%', left: '50%',
         transform: 'translate(-50%, -50%)',
         width: '60%', height: '60%',
-        background: 'radial-gradient(ellipse, rgba(201,169,110,0.06) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse, rgba(212,149,106,0.06) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
 
@@ -71,7 +71,7 @@ export function VideoSection() {
             fontWeight: 400, lineHeight: 1.1,
           }}>
             Lilibeth te cuenta<br />
-            <em style={{ color: '#C9A96E' }}>cómo funciona</em>
+            <em style={{ color: '#D4956A' }}>cómo funciona</em>
           </h2>
         </div>
 
@@ -82,7 +82,7 @@ export function VideoSection() {
             position: 'relative',
             borderRadius: '20px',
             overflow: 'hidden',
-            border: '1px solid rgba(201,169,110,0.2)',
+            border: '1px solid rgba(212,149,106,0.2)',
             boxShadow: '0 32px 80px rgba(0,0,0,0.6)',
             cursor: 'pointer',
             background: '#111',
@@ -113,14 +113,14 @@ export function VideoSection() {
             <div style={{
               width: '72px', height: '72px',
               borderRadius: '50%',
-              background: playing ? 'rgba(201,169,110,0.15)' : 'rgba(201,169,110,0.9)',
-              border: '2px solid rgba(201,169,110,0.8)',
+              background: playing ? 'rgba(212,149,106,0.15)' : 'rgba(212,149,106,0.9)',
+              border: '2px solid rgba(212,149,106,0.8)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               backdropFilter: 'blur(8px)',
               transition: 'transform 200ms ease, opacity 200ms ease, background 200ms ease',
               opacity: playing ? 0 : 1,
               transform: playing ? 'scale(0.8)' : 'scale(1)',
-              boxShadow: '0 8px 32px rgba(201,169,110,0.3)',
+              boxShadow: '0 8px 32px rgba(212,149,106,0.3)',
             }}>
               {/* Play icon */}
               <svg width="28" height="28" viewBox="0 0 24 24" fill="#F5EDE0">

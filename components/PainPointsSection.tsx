@@ -70,7 +70,7 @@ export function PainPointsSection() {
             lineHeight: 1.1,
           }}>
             Trabajás mucho.<br />
-            <em style={{ color: '#C9A96E' }}>Los resultados no acompañan.</em>
+            <em style={{ color: '#D4956A' }}>Los resultados no acompañan.</em>
           </h2>
         </div>
 
@@ -88,28 +88,28 @@ export function PainPointsSection() {
                   gridTemplateColumns: '56px 1fr',
                   gap: '28px',
                   padding: 'clamp(24px, 3vw, 36px) clamp(20px, 3vw, 40px)',
-                  background: i === 1 ? 'rgba(201,169,110,0.04)' : 'rgba(28,18,8,0.03)',
+                  background: i === 1 ? 'rgba(212,149,106,0.04)' : 'rgba(28,18,8,0.03)',
                   border: '1px solid rgba(28,18,8,0.06)',
-                  borderLeft: i === 1 ? '2px solid rgba(201,169,110,0.4)' : '2px solid transparent',
+                  borderLeft: i === 1 ? '2px solid rgba(212,149,106,0.4)' : '2px solid transparent',
                   borderRadius: '12px',
                   alignItems: 'start',
                   transition: 'border-color 300ms var(--ease-out), background 300ms var(--ease-out)',
                   cursor: 'default',
                 }}
                 onMouseEnter={e => {
-                  (e.currentTarget as HTMLDivElement).style.borderLeftColor = 'rgba(201,169,110,0.5)';
-                  (e.currentTarget as HTMLDivElement).style.background = 'rgba(201,169,110,0.05)';
+                  (e.currentTarget as HTMLDivElement).style.borderLeftColor = 'rgba(212,149,106,0.5)';
+                  (e.currentTarget as HTMLDivElement).style.background = 'rgba(212,149,106,0.05)';
                 }}
                 onMouseLeave={e => {
-                  (e.currentTarget as HTMLDivElement).style.borderLeftColor = i === 1 ? 'rgba(201,169,110,0.4)' : 'transparent';
-                  (e.currentTarget as HTMLDivElement).style.background = i === 1 ? 'rgba(201,169,110,0.04)' : 'rgba(28,18,8,0.03)';
+                  (e.currentTarget as HTMLDivElement).style.borderLeftColor = i === 1 ? 'rgba(212,149,106,0.4)' : 'transparent';
+                  (e.currentTarget as HTMLDivElement).style.background = i === 1 ? 'rgba(212,149,106,0.04)' : 'rgba(28,18,8,0.03)';
                 }}
               >
                 <span style={{
                   fontFamily: 'var(--font-instrument)',
                   fontStyle: 'italic',
                   fontSize: '40px',
-                  color: 'rgba(201,169,110,0.3)',
+                  color: 'rgba(212,149,106,0.3)',
                   lineHeight: 1,
                   paddingTop: '4px',
                 }}>

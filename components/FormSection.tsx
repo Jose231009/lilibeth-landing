@@ -99,7 +99,7 @@ export function FormSection() {
             fontWeight: 400, lineHeight: 1.1, marginBottom: '16px',
           }}>
             Contame un poco<br />
-            <em style={{ color: '#C9A96E' }}>sobre ti</em>
+            <em style={{ color: '#D4956A' }}>sobre ti</em>
           </h2>
           <p style={{ fontSize: '15px', color: 'rgba(28,18,8,0.55)', lineHeight: 1.6 }}>
             Solo 4 preguntas. Así entiendo si puedo acompañarte en este camino.
@@ -242,20 +242,20 @@ export function FormSection() {
           <div style={{
             textAlign: 'center',
             padding: 'clamp(40px, 5vw, 60px)',
-            background: 'rgba(201,169,110,0.05)',
-            border: '1px solid rgba(201,169,110,0.2)',
+            background: 'rgba(212,149,106,0.05)',
+            border: '1px solid rgba(212,149,106,0.2)',
             borderRadius: '20px',
             animation: 'kpi-appear 0.6s var(--ease-spring) both',
           }}>
             {/* Check icon */}
             <div style={{
               width: '64px', height: '64px', borderRadius: '50%',
-              background: 'rgba(201,169,110,0.1)',
-              border: '1px solid rgba(201,169,110,0.3)',
+              background: 'rgba(212,149,106,0.1)',
+              border: '1px solid rgba(212,149,106,0.3)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               margin: '0 auto 24px',
             }}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" strokeWidth="2.5">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4956A" strokeWidth="2.5">
                 <path d="M20 6L9 17l-5-5"/>
               </svg>
             </div>
@@ -265,7 +265,7 @@ export function FormSection() {
               fontSize: 'clamp(26px, 3.5vw, 36px)',
               marginBottom: '12px',
             }}>
-              ¡Listo, <em style={{ color: '#C9A96E' }}>{nombre.split(' ')[0] || 'bienvenido/a'}</em>!
+              ¡Listo, <em style={{ color: '#D4956A' }}>{nombre.split(' ')[0] || 'bienvenido/a'}</em>!
             </h3>
             <p style={{ color: 'rgba(28,18,8,0.65)', lineHeight: 1.7, marginBottom: '36px' }}>
               Tu información llegó. El siguiente paso es conectarnos — elegí cómo prefieres hacerlo:
@@ -306,14 +306,14 @@ export function FormSection() {
               <div style={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center',
                 gap: '8px', padding: '20px 16px',
-                background: 'rgba(201,169,110,0.05)',
-                border: '1px solid rgba(201,169,110,0.2)',
+                background: 'rgba(212,149,106,0.05)',
+                border: '1px solid rgba(212,149,106,0.2)',
                 borderRadius: '14px',
               }}>
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" strokeWidth="1.8">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D4956A" strokeWidth="1.8">
                   <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                 </svg>
-                <span style={{ fontSize: '13px', color: '#C9A96E', fontWeight: 600 }}>Te contacto en 24h</span>
+                <span style={{ fontSize: '13px', color: '#D4956A', fontWeight: 600 }}>Te contacto en 24h</span>
                 <span style={{ fontSize: '11px', color: 'rgba(28,18,8,0.45)', textAlign: 'center' }}>Recibirás un mensaje de Lilibeth</span>
               </div>
             </div>

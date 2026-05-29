@@ -36,7 +36,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
     <div style={{
       borderBottom: '1px solid rgba(28,18,8,0.08)',
       transition: 'background 200ms var(--ease-out)',
-      background: open ? 'rgba(201,169,110,0.03)' : 'transparent',
+      background: open ? 'rgba(212,149,106,0.03)' : 'transparent',
       borderRadius: open ? '8px' : '0',
     }}>
       <button
@@ -61,13 +61,13 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         <span style={{
           width: '28px', height: '28px', flexShrink: 0,
           borderRadius: '50%',
-          background: open ? 'rgba(201,169,110,0.15)' : 'rgba(28,18,8,0.08)',
-          border: `1px solid ${open ? 'rgba(201,169,110,0.4)' : 'rgba(28,18,8,0.1)'}`,
+          background: open ? 'rgba(212,149,106,0.15)' : 'rgba(28,18,8,0.08)',
+          border: `1px solid ${open ? 'rgba(212,149,106,0.4)' : 'rgba(28,18,8,0.1)'}`,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           // Solo transform — del skill
           transition: 'transform 300ms var(--ease-spring), background 200ms, border-color 200ms',
           transform: open ? 'rotate(45deg)' : 'rotate(0deg)',
-          color: open ? '#C9A96E' : 'rgba(28,18,8,0.55)',
+          color: open ? '#D4956A' : 'rgba(28,18,8,0.55)',
           fontSize: '18px', fontWeight: 300, lineHeight: 1,
         }}>
           +
@@ -116,7 +116,7 @@ export function FAQSection() {
             fontWeight: 400, lineHeight: 1.1,
           }}>
             Puede que estés<br />
-            <em style={{ color: '#C9A96E' }}>pensando...</em>
+            <em style={{ color: '#D4956A' }}>pensando...</em>
           </h2>
         </div>
 

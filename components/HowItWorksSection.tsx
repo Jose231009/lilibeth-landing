@@ -85,7 +85,7 @@ export function HowItWorksSection() {
       <div aria-hidden style={{
         position: 'absolute', bottom: 0, right: 0,
         width: '400px', height: '400px',
-        background: 'radial-gradient(ellipse, rgba(201,169,110,0.05) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse, rgba(212,149,106,0.05) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
 
@@ -97,7 +97,7 @@ export function HowItWorksSection() {
             fontSize: 'clamp(32px, 4.5vw, 52px)',
             fontWeight: 400, lineHeight: 1.1,
           }}>
-            Cómo <em style={{ color: '#C9A96E' }}>empiezas hoy</em>
+            Cómo <em style={{ color: '#D4956A' }}>empiezas hoy</em>
           </h2>
         </div>
 
@@ -122,8 +122,8 @@ export function HowItWorksSection() {
               }}
               onMouseEnter={e => {
                 const el = e.currentTarget as HTMLDivElement;
-                el.style.borderColor = 'rgba(201,169,110,0.25)';
-                el.style.background  = 'rgba(201,169,110,0.03)';
+                el.style.borderColor = 'rgba(212,149,106,0.25)';
+                el.style.background  = 'rgba(212,149,106,0.03)';
               }}
               onMouseLeave={e => {
                 const el = e.currentTarget as HTMLDivElement;
@@ -137,7 +137,7 @@ export function HowItWorksSection() {
                     position: 'absolute',
                     top: '52px', right: '-1px',
                     width: '2px', height: '40px',
-                    background: 'linear-gradient(to bottom, rgba(201,169,110,0.3), transparent)',
+                    background: 'linear-gradient(to bottom, rgba(212,149,106,0.3), transparent)',
                     display: 'none', // visible solo en desktop via grid
                   }} />
                 )}
@@ -147,10 +147,10 @@ export function HowItWorksSection() {
                   <div style={{
                     width: '44px', height: '44px',
                     borderRadius: '12px',
-                    background: 'rgba(201,169,110,0.1)',
-                    border: '1px solid rgba(201,169,110,0.2)',
+                    background: 'rgba(212,149,106,0.1)',
+                    border: '1px solid rgba(212,149,106,0.2)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    color: '#C9A96E', flexShrink: 0,
+                    color: '#D4956A', flexShrink: 0,
                   }}>
                     {icon}
                   </div>
@@ -158,7 +158,7 @@ export function HowItWorksSection() {
                     fontFamily: 'var(--font-instrument)',
                     fontStyle: 'italic',
                     fontSize: '36px',
-                    color: 'rgba(201,169,110,0.2)',
+                    color: 'rgba(212,149,106,0.2)',
                     lineHeight: 1,
                   }}>
                     {num}
