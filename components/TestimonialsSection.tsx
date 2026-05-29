@@ -64,7 +64,7 @@ export function TestimonialsSection() {
             obs.disconnect();
           }
         },
-        { threshold: 0.1 }
+        { threshold: 0.05 }
       );
       obs.observe(containerRef.current);
       observers.push(obs);
@@ -75,7 +75,7 @@ export function TestimonialsSection() {
 
   return (
     <section style={{
-      padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
+      padding: 'clamp(52px, 6vw, 80px) clamp(20px, 5vw, 64px)',
       background: '#EDE0CE',
     }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>

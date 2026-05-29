@@ -22,7 +22,7 @@ export function UrgencySection() {
 
   return (
     <section style={{
-      padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
+      padding: 'clamp(52px, 6vw, 80px) clamp(20px, 5vw, 64px)',
       background: '#F5EDE0',
       position: 'relative', overflow: 'hidden',
     }}>

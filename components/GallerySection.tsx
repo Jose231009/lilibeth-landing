@@ -33,7 +33,7 @@ export function GallerySection() {
           obs.disconnect();
         }
       },
-      { threshold: 0.08 }
+      { threshold: 0.04 }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -45,7 +45,7 @@ export function GallerySection() {
       background: '#F5EDE0',
     }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-        <div className="reveal" style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vw, 64px)' }}>
+        <div className="reveal" style={{ textAlign: 'center', marginBottom: 'clamp(24px, 4vw, 40px)' }}>
           <p className="eyebrow" style={{ marginBottom: '20px' }}>Los destinos que te esperan</p>
           <h2 style={{
             fontFamily: 'var(--font-instrument)',

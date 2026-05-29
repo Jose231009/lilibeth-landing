@@ -28,7 +28,7 @@ export function FormSection() {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { el.classList.add('revealed'); obs.disconnect(); } },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -84,14 +84,14 @@ export function FormSection() {
       id="formulario"
       className="reveal section-atmosphere"
       style={{
-        padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
+        padding: 'clamp(52px, 6vw, 80px) clamp(20px, 5vw, 64px)',
         background: '#EDE0CE',
         position: 'relative', overflow: 'hidden',
       }}
     >
       <div style={{ maxWidth: '640px', margin: '0 auto', position: 'relative' }}>
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: 'clamp(40px, 5vw, 56px)' }}>
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(24px, 4vw, 40px)' }}>
           <p className="eyebrow" style={{ marginBottom: '20px' }}>Siguiente paso</p>
           <h2 style={{
             fontFamily: 'var(--font-instrument)',

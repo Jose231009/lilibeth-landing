@@ -96,7 +96,7 @@ export function FAQSection() {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { el.classList.add('revealed'); obs.disconnect(); } },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -104,11 +104,11 @@ export function FAQSection() {
 
   return (
     <section style={{
-      padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
+      padding: 'clamp(52px, 6vw, 80px) clamp(20px, 5vw, 64px)',
       background: '#EDE0CE',
     }}>
       <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-        <div className="reveal" style={{ textAlign: 'center', marginBottom: 'clamp(50px, 6vw, 70px)' }}>
+        <div className="reveal" style={{ textAlign: 'center', marginBottom: 'clamp(28px, 4vw, 48px)' }}>
           <p className="eyebrow" style={{ marginBottom: '20px' }}>Preguntas frecuentes</p>
           <h2 style={{
             fontFamily: 'var(--font-instrument)',

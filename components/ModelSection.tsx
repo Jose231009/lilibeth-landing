@@ -43,7 +43,7 @@ export function ModelSection() {
     if (titleRef.current) {
       const obs = new IntersectionObserver(
         ([entry]) => { if (entry.isIntersecting) { titleRef.current!.classList.add('revealed'); obs.unobserve(titleRef.current!); } },
-        { threshold: 0.15 }
+        { threshold: 0.06 }
       );
       obs.observe(titleRef.current);
       observers.push(obs);
@@ -59,7 +59,7 @@ export function ModelSection() {
             obs.unobserve(containerRef.current!);
           }
         },
-        { threshold: 0.1 }
+        { threshold: 0.05 }
       );
       obs.observe(containerRef.current);
       observers.push(obs);
@@ -72,7 +72,7 @@ export function ModelSection() {
     <section
       id="s-shift"
       style={{
-        padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
+        padding: 'clamp(52px, 6vw, 80px) clamp(20px, 5vw, 64px)',
         background: '#EDE0CE',
         position: 'relative', overflow: 'hidden',
       }}
@@ -92,7 +92,7 @@ export function ModelSection() {
         <div
           ref={titleRef}
           className="reveal"
-          style={{ textAlign: 'center', marginBottom: 'clamp(50px, 7vw, 80px)' }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(28px, 4vw, 48px)' }}
         >
           <p className="eyebrow" style={{ marginBottom: '20px' }}>La respuesta no es trabajar más</p>
           <h2 style={{

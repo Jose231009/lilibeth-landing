@@ -64,7 +64,7 @@ export function HowItWorksSection() {
             obs.disconnect();
           }
         },
-        { threshold: 0.1 }
+        { threshold: 0.05 }
       );
       obs.observe(containerRef.current);
       observers.push(obs);
@@ -77,7 +77,7 @@ export function HowItWorksSection() {
     <section
       id="s-how"
       style={{
-        padding: 'clamp(80px, 10vw, 130px) clamp(20px, 5vw, 80px)',
+        padding: 'clamp(52px, 6vw, 80px) clamp(20px, 5vw, 64px)',
         background: '#F5EDE0',
         position: 'relative', overflow: 'hidden',
       }}
@@ -90,7 +90,7 @@ export function HowItWorksSection() {
       }} />
 
       <div style={{ maxWidth: '960px', margin: '0 auto' }}>
-        <div ref={titleRef} className="reveal" style={{ textAlign: 'center', marginBottom: 'clamp(50px, 7vw, 80px)' }}>
+        <div ref={titleRef} className="reveal" style={{ textAlign: 'center', marginBottom: 'clamp(28px, 4vw, 48px)' }}>
           <p className="eyebrow" style={{ marginBottom: '20px' }}>Tres pasos · sin vueltas</p>
           <h2 style={{
             fontFamily: 'var(--font-instrument)',
