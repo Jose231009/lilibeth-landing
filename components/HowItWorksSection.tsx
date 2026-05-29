@@ -49,7 +49,7 @@ export function HowItWorksSection() {
     if (titleRef.current) {
       const obs = new IntersectionObserver(
         ([e]) => { if (e.isIntersecting) { titleRef.current!.classList.add('revealed'); obs.disconnect(); } },
-        { threshold: 0.2 }
+        { threshold: 0.05 }
       );
       obs.observe(titleRef.current);
       observers.push(obs);
