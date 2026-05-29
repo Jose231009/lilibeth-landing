@@ -27,10 +27,10 @@ const containerVariants = {
   visible: { transition: { staggerChildren: 0.09, delayChildren: 0.3 } },
 };
 const wordVariants = {
-  hidden:  { opacity: 0, y: 28, filter: 'blur(4px)' },
+  hidden:  { opacity: 0, y: 24 },
   visible: {
-    opacity: 1, y: 0, filter: 'blur(0px)',
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+    opacity: 1, y: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
   },
 };
 const fadeUp = {
@@ -249,6 +249,7 @@ export function HeroSection() {
               src="/assets/lilibeth-hero.jpeg"
               alt="Lilibeth Paris"
               width={64} height={64}
+              priority
               style={{ objectFit: 'cover', width: '100%', height: '100%' }}
             />
           </div>
@@ -287,7 +288,7 @@ export function HeroSection() {
             src="/assets/video-lili.mp4"
             onEnded={() => setPlaying(false)}
             playsInline
-            preload="metadata"
+            preload="none"
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           />
 

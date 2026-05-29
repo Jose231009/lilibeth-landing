@@ -92,6 +92,7 @@ export function AboutSection() {
               src="/assets/lilibeth-about.jpeg"
               alt="Lilibeth Paris"
               fill
+              priority
               style={{ objectFit: 'cover', objectPosition: 'top center' }}
               sizes="(max-width: 768px) 100vw, 420px"
             />

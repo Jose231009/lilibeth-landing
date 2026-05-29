@@ -62,7 +62,7 @@ export function Navbar() {
 
       {/* Instagram */}
       <a
-        href="https://www.instagram.com/lilibethparis_/"
+        href="https://www.instagram.com/lilibethparisr"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram de Lilibeth Paris"

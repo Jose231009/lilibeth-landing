@@ -1,69 +1,77 @@
 // ─────────────────────────────────────────────────────────
 // initParticleBackground — del skill AtraeLab
-// Adaptado al dorado champagne del cliente (#C9A96E → 0xD4956A)
+// Optimizado: 350 partículas (era 1200), antialias off en mobile
 // ─────────────────────────────────────────────────────────
 
 export async function initParticleBackground(canvas: HTMLCanvasElement) {
-  // Importación dinámica — Three.js no funciona en SSR
   const THREE = await import('three');
 
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  const isMobile = window.innerWidth < 768;
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    alpha: true,
+    antialias: !isMobile,          // antialias off en mobile
+    powerPreference: 'low-power',  // pide GPU de bajo consumo
+  });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 1.5));
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   const scene  = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
   camera.position.z = 3;
 
-  // Partículas — color dorado champagne del cliente
-  const count     = 1200;
+  // Partículas — 350 (era 1200) para no saturar el GPU
+  const count     = isMobile ? 150 : 350;
   const geometry  = new THREE.BufferGeometry();
   const positions = new Float32Array(count * 3);
-  const sizes     = new Float32Array(count);
 
   for (let i = 0; i < count; i++) {
     positions[i * 3]     = (Math.random() - 0.5) * 12;
     positions[i * 3 + 1] = (Math.random() - 0.5) * 12;
     positions[i * 3 + 2] = (Math.random() - 0.5) * 8;
-    sizes[i] = Math.random() * 0.015 + 0.005;
   }
 
   geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
   const material = new THREE.PointsMaterial({
-    color: 0xB07040,   // --color-accent del cliente
-    size: 0.012,
+    color: 0xB07040,
+    size: 0.014,
     transparent: true,
-    opacity: 0.5,
+    opacity: 0.45,
     sizeAttenuation: true,
   });
 
   const particles = new THREE.Points(geometry, material);
   scene.add(particles);
 
-  // Reactividad al mouse
+  // Mouse reactivity solo en desktop
   let mouseX = 0, mouseY = 0;
-  const onMouseMove = (e: MouseEvent) => {
-    mouseX = (e.clientX / window.innerWidth  - 0.5) * 0.4;
-    mouseY = (e.clientY / window.innerHeight - 0.5) * 0.4;
-  };
-  window.addEventListener('mousemove', onMouseMove, { passive: true });
+  let onMouseMove: ((e: MouseEvent) => void) | null = null;
+  if (!isMobile) {
+    onMouseMove = (e: MouseEvent) => {
+      mouseX = (e.clientX / window.innerWidth  - 0.5) * 0.3;
+      mouseY = (e.clientY / window.innerHeight - 0.5) * 0.3;
+    };
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+  }
 
-  // Loop de animación — solo transform (del skill)
+  // Loop — throttle a ~30fps para ahorrar batería
   const clock = new THREE.Clock();
   let animId: number;
+  let lastTime = 0;
 
-  function animate() {
+  function animate(now: number) {
     animId = requestAnimationFrame(animate);
+    if (now - lastTime < 33) return;   // ~30fps cap
+    lastTime = now;
     const t = clock.getElapsedTime();
-    // Rotación suave + reactividad al cursor
-    particles.rotation.y = t * 0.04 + mouseX;
-    particles.rotation.x = t * 0.02 + mouseY;
+    particles.rotation.y = t * 0.03 + mouseX;
+    particles.rotation.x = t * 0.015 + mouseY;
     renderer.render(scene, camera);
   }
-  animate();
+  animId = requestAnimationFrame(animate);
 
-  // Resize handler
   const onResize = () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
@@ -71,10 +79,9 @@ export async function initParticleBackground(canvas: HTMLCanvasElement) {
   };
   window.addEventListener('resize', onResize);
 
-  // Cleanup — obligatorio del skill
   return () => {
     cancelAnimationFrame(animId);
-    window.removeEventListener('mousemove', onMouseMove);
+    if (onMouseMove) window.removeEventListener('mousemove', onMouseMove);
     window.removeEventListener('resize', onResize);
     geometry.dispose();
     material.dispose();
