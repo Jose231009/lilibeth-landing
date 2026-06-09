@@ -112,6 +112,23 @@ export function ModelSection() {
             No se trata de más esfuerzo ni de más suerte. Se trata de acceder a un
             sistema que genera ingresos recurrentes — y dejarlo trabajar para ti.
           </p>
+          {/* Transparencia NM — antes de las FAQ */}
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '6px',
+            marginTop: '20px',
+            padding: '8px 18px',
+            background: 'rgba(212,149,106,0.08)',
+            border: '1px solid rgba(212,149,106,0.22)',
+            borderRadius: '20px',
+            fontSize: '12px',
+            color: 'rgba(28,18,8,0.55)',
+            letterSpacing: '0.04em',
+          }}>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D4956A" strokeWidth="2.2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Marketing de red · Sin stock · Sin grandes inversiones · 100% digital
+          </div>
         </div>
 
         {/* Cards con stagger — del skill */}

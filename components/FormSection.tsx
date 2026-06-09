@@ -1,10 +1,9 @@
 'use client';
 // ─────────────────────────────────────────────────────────
-// FormSection — Formulario con Make webhook
-// • section-atmosphere (noise + gradient del skill)
+// FormSection — Formulario simplificado (2 campos)
+// • Solo nombre + WhatsApp → Make webhook
 // • Botón con ripple dinámico del skill
 // • Focus glow en inputs (microinteracción del skill)
-// • Webhook: POST a Make con full_name, phone, question_1/2, answer_1/2
 // ─────────────────────────────────────────────────────────
 import { useEffect, useRef, useState } from 'react';
 
@@ -13,14 +12,11 @@ const WA_NUMBER   = '34644649106';
 
 export function FormSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [nombre,   setNombre]   = useState('');
-  const [email,    setEmail]    = useState('');
-  const [wa,       setWa]       = useState('');
-  const [ocup,     setOcup]     = useState('');
-  const [obj,      setObj]      = useState('');
-  const [loading,  setLoading]  = useState(false);
-  const [success,  setSuccess]  = useState(false);
-  const [error,    setError]    = useState('');
+  const [nombre,  setNombre]  = useState('');
+  const [wa,      setWa]      = useState('');
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error,   setError]   = useState('');
 
   // Reveal al entrar
   useEffect(() => {
@@ -44,31 +40,19 @@ export function FormSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!nombre || !email || !wa || !ocup || !obj) return;
-
+    if (!nombre || !wa) return;
     setLoading(true);
     setError('');
-
-    const payload = {
-      full_name:  nombre,
-      email:      email,
-      phone:      wa,
-      question_1: '¿A qué te dedicas actualmente?',
-      answer_1:   ocup,
-      question_2: '¿Qué buscas principalmente?',
-      answer_2:   obj,
-    };
-
     try {
       const res = await fetch(WEBHOOK_URL, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(payload),
+        body:    JSON.stringify({ full_name: nombre, phone: wa }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setSuccess(true);
     } catch {
-      setError('Hubo un problema al enviar. Inténtalo de nuevo o escríbenos por WhatsApp.');
+      setError('Hubo un problema al enviar. Escríbenos por WhatsApp directamente.');
     } finally {
       setLoading(false);
     }
@@ -89,114 +73,51 @@ export function FormSection() {
         position: 'relative', overflow: 'hidden',
       }}
     >
-      <div style={{ maxWidth: '640px', margin: '0 auto', position: 'relative' }}>
+      <div style={{ maxWidth: '560px', margin: '0 auto', position: 'relative' }}>
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: 'clamp(24px, 4vw, 40px)' }}>
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(24px, 4vw, 36px)' }}>
           <p className="eyebrow" style={{ marginBottom: '20px' }}>Siguiente paso</p>
           <h2 style={{
             fontFamily: 'var(--font-instrument)',
             fontSize: 'clamp(30px, 4vw, 48px)',
-            fontWeight: 400, lineHeight: 1.1, marginBottom: '16px',
+            fontWeight: 400, lineHeight: 1.1, marginBottom: '14px',
           }}>
-            Contame un poco<br />
-            <em style={{ color: '#D4956A' }}>sobre ti</em>
+            Hablemos sin<br />
+            <em style={{ color: '#D4956A' }}>compromiso</em>
           </h2>
           <p style={{ fontSize: '15px', color: 'rgba(28,18,8,0.55)', lineHeight: 1.6 }}>
-            Solo 4 preguntas. Así entiendo si puedo acompañarte en este camino.
+            Dejame tu nombre y WhatsApp — te contacto en menos de 24 horas.
           </p>
         </div>
 
         {/* ── FORMULARIO ── */}
         {!success ? (
           <form onSubmit={handleSubmit}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
 
               {/* Nombre */}
-              <div>
-                <label style={{ display: 'block', fontSize: '12px', color: 'rgba(28,18,8,0.45)', letterSpacing: '0.1em', marginBottom: '8px' }}>
-                  TU NOMBRE COMPLETO
-                </label>
-                <input
-                  className="form-control"
-                  type="text"
-                  placeholder="Cómo te llaman"
-                  value={nombre}
-                  onChange={e => setNombre(e.target.value)}
-                  required
-                />
-              </div>
-
-              {/* Email */}
-              <div>
-                <label style={{ display: 'block', fontSize: '12px', color: 'rgba(28,18,8,0.45)', letterSpacing: '0.1em', marginBottom: '8px' }}>
-                  EMAIL
-                </label>
-                <input
-                  className="form-control"
-                  type="email"
-                  placeholder="tu@email.com"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  required
-                />
-              </div>
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Tu nombre"
+                value={nombre}
+                onChange={e => setNombre(e.target.value)}
+                required
+              />
 
               {/* WhatsApp */}
-              <div>
-                <label style={{ display: 'block', fontSize: '12px', color: 'rgba(28,18,8,0.45)', letterSpacing: '0.1em', marginBottom: '8px' }}>
-                  WHATSAPP (con código de país)
-                </label>
-                <input
-                  className="form-control"
-                  type="tel"
-                  placeholder="+34 612 345 678"
-                  value={wa}
-                  onChange={e => setWa(e.target.value)}
-                  required
-                />
-              </div>
-
-              {/* Ocupación */}
-              <div>
-                <label style={{ display: 'block', fontSize: '12px', color: 'rgba(28,18,8,0.45)', letterSpacing: '0.1em', marginBottom: '8px' }}>
-                  ¿A QUÉ TE DEDICAS ACTUALMENTE?
-                </label>
-                <select
-                  className="form-control"
-                  value={ocup}
-                  onChange={e => setOcup(e.target.value)}
-                  required
-                >
-                  <option value="" disabled>Elegí una opción</option>
-                  <option value="Soy empleado/a">Soy empleado/a</option>
-                  <option value="Tengo mi propio negocio">Tengo mi propio negocio</option>
-                  <option value="Trabajo de forma independiente">Trabajo de forma independiente</option>
-                  <option value="Estoy en network marketing">Estoy en network marketing</option>
-                </select>
-              </div>
-
-              {/* Objetivo */}
-              <div>
-                <label style={{ display: 'block', fontSize: '12px', color: 'rgba(28,18,8,0.45)', letterSpacing: '0.1em', marginBottom: '8px' }}>
-                  ¿QUÉ BUSCAS PRINCIPALMENTE?
-                </label>
-                <select
-                  className="form-control"
-                  value={obj}
-                  onChange={e => setObj(e.target.value)}
-                  required
-                >
-                  <option value="" disabled>Elegí una opción</option>
-                  <option value="Un ingreso extra que complemente lo que hago">Un ingreso extra que complemente lo que hago</option>
-                  <option value="Reemplazar mi ingreso actual completamente">Reemplazar mi ingreso actual completamente</option>
-                  <option value="Libertad de tiempo y geográfica">Libertad de tiempo y geográfica</option>
-                  <option value="Estoy explorando opciones todavía">Estoy explorando opciones todavía</option>
-                </select>
-              </div>
+              <input
+                className="form-control"
+                type="tel"
+                placeholder="WhatsApp con código de país (+34, +52, +54…)"
+                value={wa}
+                onChange={e => setWa(e.target.value)}
+                required
+              />
 
               {/* Error */}
               {error && (
-                <p style={{ fontSize: '13px', color: '#ef9a9a', textAlign: 'center' }}>{error}</p>
+                <p style={{ fontSize: '13px', color: '#c0392b', textAlign: 'center' }}>{error}</p>
               )}
 
               {/* Submit — ripple del skill */}
@@ -207,20 +128,18 @@ export function FormSection() {
                 disabled={loading}
                 style={{
                   width: '100%', justifyContent: 'center',
-                  padding: '18px', fontSize: '15px', marginTop: '8px',
+                  padding: '18px', fontSize: '15px', marginTop: '4px',
                   opacity: loading ? 0.75 : 1,
                 }}
               >
                 {loading ? (
                   <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <span className="loader-dots">
-                      <span/><span/><span/>
-                    </span>
+                    <span className="loader-dots"><span/><span/><span/></span>
                     Enviando…
                   </span>
                 ) : (
                   <>
-                    Quiero ver cómo funciona
+                    Quiero dar el primer paso
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
@@ -229,11 +148,14 @@ export function FormSection() {
               </button>
 
               {/* Nota privacidad */}
-              <p style={{ textAlign: 'center', fontSize: '12px', color: 'rgba(28,18,8,0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+              <p style={{
+                textAlign: 'center', fontSize: '12px', color: 'rgba(28,18,8,0.35)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+              }}>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                 </svg>
-                Tu información es privada. No la compartimos con nadie.
+                Sin spam · Información privada
               </p>
             </div>
           </form>
@@ -241,13 +163,12 @@ export function FormSection() {
           /* ── THANK YOU ── */
           <div style={{
             textAlign: 'center',
-            padding: 'clamp(40px, 5vw, 60px)',
+            padding: 'clamp(40px, 5vw, 56px)',
             background: 'rgba(212,149,106,0.05)',
             border: '1px solid rgba(212,149,106,0.2)',
             borderRadius: '20px',
             animation: 'kpi-appear 0.6s var(--ease-spring) both',
           }}>
-            {/* Check icon */}
             <div style={{
               width: '64px', height: '64px', borderRadius: '50%',
               background: 'rgba(212,149,106,0.1)',
@@ -268,7 +189,7 @@ export function FormSection() {
               ¡Listo, <em style={{ color: '#D4956A' }}>{nombre.split(' ')[0] || 'bienvenido/a'}</em>!
             </h3>
             <p style={{ color: 'rgba(28,18,8,0.65)', lineHeight: 1.7, marginBottom: '36px' }}>
-              Tu información llegó. El siguiente paso es conectarnos — elegí cómo prefieres hacerlo:
+              Tu información llegó. Elegí cómo conectarnos:
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
@@ -284,16 +205,10 @@ export function FormSection() {
                   border: '1px solid rgba(37,211,102,0.25)',
                   borderRadius: '14px',
                   textDecoration: 'none',
-                  transition: 'transform 300ms var(--ease-spring), box-shadow 300ms',
+                  transition: 'transform 300ms var(--ease-spring)',
                 }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-3px)';
-                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 8px 24px rgba(37,211,102,0.2)';
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(0)';
-                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = 'none';
-                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-3px)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(0)'; }}
               >
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="#25d366">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
@@ -302,7 +217,7 @@ export function FormSection() {
                 <span style={{ fontSize: '11px', color: 'rgba(28,18,8,0.45)' }}>Te respondo enseguida</span>
               </a>
 
-              {/* Email / CTA */}
+              {/* Espera Lilibeth */}
               <div style={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center',
                 gap: '8px', padding: '20px 16px',

@@ -15,6 +15,7 @@ import { FAQSection }           from '@/components/FAQSection';
 import { UrgencySection }       from '@/components/UrgencySection';
 import { GallerySection }       from '@/components/GallerySection';
 import { FormSection }          from '@/components/FormSection';
+import { VideoSection }         from '@/components/VideoSection';
 import { GlobalRevealObserver } from '@/components/GlobalRevealObserver';
 
 // WhatsApp flotante como Server Component inline (sin interactividad)
@@ -95,6 +96,7 @@ export default function Home() {
         <HeroSection />
         <DestinationsMarquee />
         <PainPointsSection />
+        <VideoSection />
         <ModelSection />
         <AboutSection />
         <TestimonialsSection />
